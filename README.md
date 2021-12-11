@@ -12,16 +12,18 @@ Contiene le query di postgresql per l'importazione dei dati censuari catastali e
   5.1. [catasto terreni](#terreni)
   5.2. [catasto fabbricati](#fabbricati)
 6. [Elaborazione dei dati nello schema `catasto_ter`](#catasto_ter)
+7. [Relazioni in QGIS](#qgis_relations)
 
 
 ## 1. Prerequisiti <a name="prerequisiti"></a>
 Software necessari:
 - [QGIS](https://www.qgis.org/it/site/)
 - [PostgreSQL](https://www.postgresql.org/)
-- plugin per QGIS [cxf_in](https://github.com/saccon/CXF_in)
+- plugin per QGIS [cxf_in](https://github.com/saccon/CXF_in) (Opzionale)
 
 Dati:
-- Cartografie catastali in formato CXF
+- Cartografie catastali in formato vettoriale (ad esempio importati dal plugin cxf_in)
+- Campo testuale nel vettoriale catastale che contiene l'identificativo della particella/fabbricato nel formato "codicecomune_foglio_particella" (es. H308_0052_125)
 - Dati censuari catasto fabbricati
 - Dati censuari catasto terreni
 ## 2. Breve descrizione dei dati catastali censuari <a name="descrizione"></a>
@@ -859,3 +861,14 @@ t.codice_fiscale
 FROM ter1_colnames as ter
 RIGHT JOIN tit_sogp_sogg_partite_speciali t ON ter.identificativo_immobile = t.identificativo_immobile;
 ```
+## 7. Relazioni in QGIS <a name="#qgis_relations"></a>
+In QGIS caricare il vettoriale del catasto terreni e/o fabbricati. Creare un campo `com_fg_plla`, con il calcolatore dei campi, identificativo della particella/fabbricato costiuito da: codicecomune_foglio_particella.
+Ad esempio se si hanno i campi `codice_comune`, `foglio` e `mappale` basta utilizzare l'espressione: `CONCAT(codice_comune, '_',fg,'_', mappale)`.
+Caricare la vista `dati_censuari_ter` (o `dati_censuari_fab`) dal database e creare la seguente relazione nelle proprietà di progetto di QGIS:
+- Nome: Elenco intestati
+- Layer padre: il vettoriale
+- Campo del Layer padre: com_fg_plla (Creato al punto precedente)
+- Layer figlio: `dati_censuari_ter`
+- Campo del Layer figlio: com_fg_plla
+
+Interrogare la particella/fabbricato!
