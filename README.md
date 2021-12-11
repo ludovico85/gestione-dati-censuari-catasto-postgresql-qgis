@@ -12,7 +12,8 @@ Contiene le query di postgresql per l'importazione dei dati censuari catastali e
   5.1. [catasto terreni](#terreni)
   5.2. [catasto fabbricati](#fabbricati)
 6. [Elaborazione dei dati nello schema `catasto_ter`](#catasto_ter)
-7. [Relazioni in QGIS](#qgis_relations)
+7. [Elaborazione dei dati nello schema `catasto_fab`](#catasto_fab)
+8. [Relazioni in QGIS](#qgis_relations)
 
 
 ## 1. Prerequisiti <a name="prerequisiti"></a>
@@ -745,20 +746,21 @@ FROM sog
 WHERE field_4 = 'G';
 ```
 #### Join titolarità soggetti
-Si ricosituiscono le relazioni tra le titolairtà e i soggetti (giuridici e persone fisiche) e successivamente si esegue l'union tra le due viste in modo da avere un un'unica vista con tutte le relazioni.
+Si ricostituiscono le relazioni tra le titolairtà e i soggetti (giuridici e persone fisiche) e successivamente si esegue l'union tra le due viste in modo da avere un un'unica vista con tutte le relazioni.
 ```sql
 CREATE OR REPLACE VIEW titp_sogp AS
 SELECT
 	t.identificativo_immobile,
 	t.tipo_immobile,
-	t.identificativo_soggetto identificativo_soggetto_tit,
+	t.identificativo_soggetto as identificativo_soggetto_tit,
+  t.identificativo_titolarita,
 	t.descrizione_diritto as diritto,
 	concat(t.quota_numeratore_possesso, '/', t.quota_denominatore_possesso) AS quota,
-    p.identificativo_soggetto as identificativo_soggetto_sogp,
-    p.cognome,
-    p.nome,
-    p.data_nascita,
-    p.codice_fiscale
+  p.identificativo_soggetto as identificativo_soggetto_sogp,
+  p.cognome,
+  p.nome,
+  p.data_nascita,
+  p.codice_fiscale
 	FROM titp t
 	LEFT JOIN sogp p ON t.identificativo_soggetto = p.identificativo_soggetto;
 ```
@@ -768,12 +770,13 @@ SELECT
 	t.identificativo_immobile,
 	t.tipo_immobile,
 	t.identificativo_soggetto identificativo_soggetto_tit,
+  t.identificativo_titolarita,
 	t.descrizione_diritto as diritto,
 	concat(t.quota_numeratore_possesso, '/', t.quota_denominatore_possesso) AS quota,
-    g.identificativo_soggetto as identificativo_soggetto_sogg,
-    g.denominazione,
-    g.codice_amministrativo_sede,
-    g.codice_fiscale
+  g.identificativo_soggetto as identificativo_soggetto_sogg,
+  g.denominazione,
+  g.codice_amministrativo_sede,
+  g.codice_fiscale
 	FROM titg t
 	LEFT JOIN sogg g ON t.identificativo_soggetto = g.identificativo_soggetto;
 ```
@@ -787,6 +790,7 @@ g.diritto as diritto,
 g.quota as quota,
 g.identificativo_soggetto_tit as identificativo_soggetto_tit,
 g.identificativo_soggetto_sogg as identificativo_soggetto,
+g.identificativo_titolarita as identificativo_titolarita,
 g.denominazione as denominazione,
 g.codice_amministrativo_sede as codice_amministrativo_sede,
 NULL as data_nascita,
@@ -801,6 +805,7 @@ p.diritto as diritto,
 p.quota as quota,
 p.identificativo_soggetto_tit as identificativo_soggetto_tit,
 p.identificativo_soggetto_sogp as identificativo_soggetto,
+p.identificativo_titolarita as identificativo_titolarita,
 concat(p.cognome, ' ', p.nome) as denominazione,
 NULL as codice_amministrativo_sede,
 p.data_nascita as data_nascita,
@@ -813,12 +818,13 @@ t.tipo_immobile as tipo_immobile,
 'partita speciale' as tipo_soggetto,
 NULL as diritto,
 NULL as quota,
+NULL as identificativo_soggetto_tit,
 NULL as identificativo_soggetto,
+NULL as identificativo_titolarita,
 t.descrizione_partita as denominazione,
 NULL as codice_amministrativo_sede,
 NULL as data_nascita,
-NULL as codice_fiscale,
-NULL as idimm_idsog_diritto
+NULL as codice_fiscale
 FROM catasto_terreni.ter1_colnames as t
 WHERE partita IN ('0','1','2','3','4','5')
 ```
@@ -882,6 +888,7 @@ t.identificativo_immobile as identificativo_immobile_tit,
 t.tipo_soggetto,
 t.diritto,
 t.quota,
+t.identificativo_titolarita,
 t.identificativo_soggetto_tit,
 t.identificativo_soggetto,
 t.denominazione,
@@ -891,7 +898,9 @@ t.codice_fiscale
 FROM ter1_colnames as ter
 RIGHT JOIN tit_sogp_sogg_partite_speciali t ON ter.identificativo_immobile = t.identificativo_immobile;
 ```
-## 7. Relazioni in QGIS <a name="#qgis_relations"></a>
+## 7. Elaborazione dei dati nello schema `catasto_fab` <a name="catasto_fab"></a> ***In costruzione***
+
+## 8. Relazioni in QGIS <a name="#qgis_relations"></a>
 In QGIS caricare il vettoriale del catasto terreni e/o fabbricati. Creare un campo `com_fg_plla`, con il calcolatore dei campi, identificativo della particella/fabbricato costiuito da: codicecomune_foglio_particella.
 Ad esempio se si hanno i campi `codice_comune`, `foglio` e `mappale` basta utilizzare l'espressione: `CONCAT(codice_comune, '_',fg,'_', mappale)`. ***Il campo foglio deve avere 4 caratteri; Ad esempio il foglio 12 deve essere codificato come 0012.***
 Caricare la vista `dati_censuari_ter` (o `dati_censuari_fab`) dal database e creare la seguente relazione nelle proprietà di progetto di QGIS:
