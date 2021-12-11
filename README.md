@@ -541,3 +541,55 @@ CREATE OR REPLACE VIEW ter2 AS SELECT * from ter WHERE field_6 = '2';
 CREATE OR REPLACE VIEW ter3 AS SELECT * from ter WHERE field_6 = '3';
 CREATE OR REPLACE VIEW ter4 AS SELECT * from ter WHERE field_6 = '4';
 ```
+#### Tipo di record 1
+Dalla vista `ter1` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), gli elementi identificativi della particella (da field_7 a field_11), i dati caratteristici della particella (da field_12 a field_23) e il numero della partita (field_36).
+```sql
+CREATE OR REPLACE VIEW ter1_colnames AS
+SELECT
+  field_1 AS codice_amministrativo,
+  field_2 AS sezione,
+  field_3 AS identificativo_immobile,
+  field_4 AS tipo_immobile,
+  field_5 AS progressivo,
+  field_6 AS tipo_record,
+  field_7 AS foglio,
+  field_8 AS numero,
+  field_9 AS denominatore,
+  field_10 AS subalterno,
+  field_11 AS edificialita,
+  field_12 AS qualita,
+  field_13 AS classe,
+  field_14 AS ettari,
+  field_15 AS are,
+  field_16 AS centiare,
+  field_17 AS flag_reddito,
+  field_18 AS flag_porzione,
+  field_19 AS flag_deduzioni,
+  field_20 AS reddito_dominicale_lire,
+  field_21 AS reddito_agrario_lire,
+  field_22 AS reddito_dominicale_euro,
+  field_23 AS reddito_agrario_euro,
+  field_36 AS partita
+FROM ter1
+```
+#### Tipo di record 2 (da completare)
+#### Tipo di record 3
+Oltre ai dati generali (da field_1 a field_6), è presente la tabella delle riserve che può contenere più campi. E' impossibile conoscere a priori in numero massimo di partite.
+
+CREATE OR REPLACE VIEW ter1_colnames AS
+SELECT
+  field_1 AS codice_amministrativo,
+  field_2 AS sezione,
+  field_3 AS identificativo_immobile,
+  field_4 AS tipo_immobile,
+  field_5 AS progressivo,
+  field_6 AS tipo_record,
+  field_7 AS codice_riserva,
+  field_8 AS partita_iscrizione_riserva,
+  field_9 AS codice_riserva,
+  field_10 AS partita_iscrizione_riserva,
+  field_11 AS codice_riserva,
+  field_12 AS partita_iscrizione_riserva,
+  field_13 AS codice_riserva,
+  field_14 AS partita_iscrizione_riserva,
+FROM ter1
