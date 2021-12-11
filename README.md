@@ -640,7 +640,7 @@ field_3 AS identificativo_soggetto,
 field_4 AS tipo_soggetto,
 field_5 AS identificativo_immobile,
 field_6 AS tipo_immobile,
-field_7 AS codice_diritto,
+regexp_replace(field_7, '\s', '', 'g') AS codice_diritto,
 field_8 AS titolo_non_codificato,
 field_9 AS quota_numeratore_possesso,
 field_10 AS quota_denominatore_possesso,
@@ -666,7 +666,7 @@ field_29 AS codice_causale_atto_generante,
 field_30 AS descrizione_atto_generante,
 d.descrizione AS descrizione_diritto
 FROM tit
-LEFT JOIN catasto_terreni.codici_diritto d ON tit.field_7 = d.codice
+LEFT JOIN catasto_terreni.codici_diritto d ON regexp_replace(tit.field_7, '\s', '', 'g') = d.codice
 ```
 ```sql
 CREATE OR REPLACE VIEW titp AS
@@ -774,18 +774,18 @@ p.codice_fiscale as codice_fiscale
 FROM catasto_terreni.titp_sogp p
 UNION ALL
 SELECT
-s.identificativo_immobile as identificativo_immobile,
-s.tipo_immobile as tipo_immobile,
+t.identificativo_immobile as identificativo_immobile,
+t.tipo_immobile as tipo_immobile,
 'partita speciale' as tipo_soggetto,
 NULL as diritto,
 NULL as quota,
 NULL as identificativo_soggetto,
-s.descrizione_partita as denominazione,
+t.descrizione_partita as denominazione,
 NULL as codice_amministrativo_sede,
 NULL as data_nascita,
 NULL as codice_fiscale,
 NULL as idimm_idsog_diritto
-FROM catasto_terreni.ter1_colnames
+FROM catasto_terreni.ter1_colnames as t
 WHERE partita IN ('0','1','2','3','4','5')
 ```
 #### Join finale dei dati censuari del catasto terreni
