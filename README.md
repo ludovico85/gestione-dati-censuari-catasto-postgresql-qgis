@@ -9,7 +9,7 @@ Contiene le query di postgresql per l'importazione dei dati censuari catastali e
 3. [Importazione delle cartografie catastali in CXF](#cxf)
 4. [Creazione del database e degli schemi in PostgreSQL](#db)
 5. [Importazione dei dati in QGIS](#qgis)
-5.1. [catasto terreni](#terreni)
+  5.1. [catasto terreni](#terreni)
 
 
 ## 1. Prerequisiti <a name="prerequisiti"></a>
