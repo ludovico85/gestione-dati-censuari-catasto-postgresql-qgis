@@ -662,7 +662,7 @@ LEFT JOIN qualita c ON t.field_12 = c.codice
 LEFT JOIN qualita d ON t.field_12 = d.codice
 ```
 #### Titolarità
-Si ricostruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolairtà delle persone fisiche e dei soggetti giuridici.
+Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolairtà delle persone fisiche e dei soggetti giuridici.
 
 ```sql
 CREATE OR REPLACE VIEW tit_colnames AS SELECT DISTINCT ON (field_28)
@@ -672,7 +672,7 @@ CREATE OR REPLACE VIEW tit_colnames AS SELECT DISTINCT ON (field_28)
   field_4 AS tipo_soggetto,
   field_5 AS identificativo_immobile,
   field_6 AS tipo_immobile,
-  regexp_replace(field_7, '\s', '', 'g') AS codice_diritto,
+  regexp_replace(field_7, '\s', '', 'g') AS codici_diritto,
   field_8 AS titolo_non_codificato,
   field_9 AS quota_numeratore_possesso,
   field_10 AS quota_denominatore_possesso,
@@ -1033,8 +1033,7 @@ CREATE OR REPLACE VIEW fab1_colnames AS SELECT
   field_10 AS consistenza,
   CASE WHEN field_8 LIKE 'A%' THEN 'vani' ELSE (
     CASE WHEN field_8 LIKE 'B%' THEN 'metri cubi' ELSE (
-      CASE WHEN field_8 LIKE 'C%' THEN 'metri quadri' END
-    )
+      CASE WHEN field_8 LIKE 'C%' THEN 'metri quadri' END)
     END)
   END AS unita_misura_consistenza,
   field_11 AS superficie,
@@ -1138,10 +1137,10 @@ CREATE OR REPLACE VIEW fab3_colnames AS SELECT
     END)
   END AS indirizzo_completo_c
 FROM fab3
-LEFT JOIN toponimo t ON CAST(fab3.field_7 AS INTEGER) = t.codice_toponimo
-LEFT JOIN toponimo a ON CAST(fab3.field_13 AS INTEGER) = a.codice_toponimo
-LEFT JOIN toponimo b ON CAST(fab3.field_19 AS INTEGER) = b.codice_toponimo
-LEFT JOIN toponimo c ON CAST(fab3.field_25 AS INTEGER) = c.codice_toponimo
+LEFT JOIN codice_toponimo t ON CAST(fab3.field_7 AS INTEGER) = t.codice
+LEFT JOIN codice_toponimo a ON CAST(fab3.field_13 AS INTEGER) = a.codice
+LEFT JOIN codice_toponimo b ON CAST(fab3.field_19 AS INTEGER) = b.codice
+LEFT JOIN codice_toponimo c ON CAST(fab3.field_25 AS INTEGER) = c.codice
 ```
 #### Tipo di record 4
 Dalla vista `fab4` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), la tabella unità comuni (da field_7 a field_12).
@@ -1161,7 +1160,272 @@ field_10 AS denominatore,
 field_11 AS subalterno
 FROM fab4
 ```
+### fab1_2_3_4_5
+```sql
+CREATE OR REPLACE VIEW fab1_2_3_4_5 AS SELECT
+  fab1.codice_amministrativo,
+  fab1.sezione,
+  fab1.identificativo_immobile,
+  fab1.progressivo,
+  fab1.tipo_record,
+  fab1.zona,
+  fab1.categoria,
+  fab1.descrizione_categoria,
+  fab1.classe,
+  fab1.consistenza,
+  fab1.unita_misura_consistenza,
+  fab1.superficie,
+  fab1.rendita_lire,
+  fab1.rendita_euro,
+  fab1.lotto,
+  fab1.edificio,
+  fab1.scala,
+  fab1.interno_1,
+  fab1.interno_2,
+  fab1.interno_concat,
+  fab1.piano_1,
+  fab1.piano_2,
+  fab1.piano_3,
+  fab1.piano_4,
+  fab1.piano_concat,
+  concat_ws ('-', nullif(trim(fab1.partita), ''), nullif(trim(psf.descrizione), '')) as partita,
+  fab2.foglio,
+  fab2.numero,
+  fab2.denominatore,
+  fab2.subalterno,
+  fab2.edificialita,
+  fab2.immobili_graffati,
+  CASE WHEN fab3.indirizzo_completo IS NOT NULL AND fab3.indirizzo_completo_a = '' AND fab3.indirizzo_completo_b = '' AND indirizzo_completo_c = '' THEN indirizzo_completo ELSE (
+    CASE WHEN fab3.indirizzo_completo_a IS NOT NULL AND fab3.indirizzo_completo_b = '' AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_a ELSE (
+      CASE WHEN fab3.indirizzo_completo_b IS NOT NULL AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_b ELSE (
+        CASE WHEN fab3.indirizzo_completo_c IS NOT NULL THEN fab3.indirizzo_completo_c
+        END)
+      END)
+    END)
+  END AS indirizzo_completo,
+  CASE WHEN fab4.identificativo_immobile = fab1.identificativo_immobile THEN 'utilità comuni dell''unità immobiliare' END AS utilita_comuni,
+  CASE WHEN fab5.field_3 = fab1.identificativo_immobile THEN 'riserva dell''unità immobiliare' END AS riserva
+FROM
+fab1_colnames fab1
+LEFT JOIN fab2_colnames fab2 ON fab1.identificativo_immobile = fab2.identificativo_immobile
+LEFT JOIN fab3_colnames fab3 ON fab1.identificativo_immobile = fab3.identificativo_immobile
+LEFT JOIN fab4_colnames fab4 ON fab1.identificativo_immobile = fab4.identificativo_immobile
+LEFT JOIN fab5 fab5 ON fab1.identificativo_immobile = fab5.field_3
+LEFT JOIN partite_speciali_fabbricati psf ON fab1.partita = psf.codice
+```
+#### Titolarità
+Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolairtà delle persone fisiche e dei soggetti giuridici.
 
+```sql
+CREATE OR REPLACE VIEW tit_colnames AS SELECT DISTINCT ON (field_28)
+  field_1 AS codice_amministrativo,
+  field_2 AS sezione,
+  field_3 AS identificativo_soggetto,
+  field_4 AS tipo_soggetto,
+  field_5 AS identificativo_immobile,
+  field_6 AS tipo_immobile,
+  regexp_replace(field_7, '\s', '', 'g') AS codici_diritto,
+  field_8 AS titolo_non_codificato,
+  field_9 AS quota_numeratore_possesso,
+  field_10 AS quota_denominatore_possesso,
+  field_11 AS regime,
+  field_12 AS soggetto_riferimento,
+  field_13 AS data_validita_atto_generato,
+  field_14 AS tipo_nota_generato,
+  field_15 AS numero_nota_generato,
+  field_16 AS progressivo_nota_generato,
+  field_17 AS anno_nota_generato,
+  field_18 AS data_registrazione_atti_generato,
+  field_19 AS partita,
+  field_20 AS data_validita_atto_concluso,
+  field_21 AS tipo_nota_concluso,
+  field_22 AS numero_nota_concluso,
+  field_23 AS progessivo_nota_concluso,
+  field_24 AS anno_nota_concluso,
+  field_25 AS data_registrazione_atti_concluso,
+  field_26 AS identificativo_mutazione_iniziale,
+  field_27 AS identificativo_mutazione_finale,
+  field_28 AS identificativo_titolarita,
+  field_29 AS codice_causale_atto_generante,
+  field_30 AS descrizione_atto_generante,
+  d.descrizione AS descrizione_diritto
+FROM tit
+LEFT JOIN catasto_terreni.codici_diritto d ON regexp_replace(tit.field_7, '\s', '', 'g') = d.codice
+```
+```sql
+CREATE OR REPLACE VIEW titp AS SELECT *
+FROM tit_colnames
+WHERE tipo_soggetto = 'P';
+```
+```sql
+CREATE OR REPLACE VIEW titg AS SELECT *
+FROM tit_colnames
+WHERE tipo_soggetto = 'G';
+```
+#### Soggetti
+Si ricostiuiscono dapprima i nomi dei campi per le perosne fisiche e i soggetti giuridici.
+```sql
+CREATE OR REPLACE VIEW sogp AS SELECT
+  field_1 AS codice_amministrativo,
+  field_2 AS sezione,
+  field_3 AS identificativo_soggetto,
+  field_4 AS tipo_soggetto,
+  field_5 AS cognome,
+  field_6 AS nome,
+  field_7 AS sesso,
+  field_8 AS data_nascita,
+  field_9 AS codice_amministratvio_comune_nascita,
+  field_10 AS codice_fiscale,
+  field_11 AS indicazioni_supplementari
+FROM sog
+WHERE field_4 = 'P';
+```
+```sql
+CREATE OR REPLACE VIEW sogg AS SELECT
+  field_1 AS codice_amministrativo,
+  field_2 AS sezione,
+  field_3 AS identificativo_soggetto,
+  field_4 AS tipo_soggetto,
+  field_5 AS denominazione,
+  field_6 AS codice_amministrativo_sede,
+  field_7 AS codice_fiscale
+FROM sog
+WHERE field_4 = 'G';
+```
+#### Join titolarità soggetti
+Si ricostituiscono le relazioni tra le titolairtà e i soggetti (giuridici e persone fisiche) e successivamente si esegue l'union tra le due viste in modo da avere un un'unica vista con tutte le relazioni.
+```sql
+CREATE OR REPLACE VIEW titp_sogp AS SELECT
+  t.identificativo_immobile,
+  t.tipo_immobile,
+  t.identificativo_soggetto as identificativo_soggetto_tit,
+  t.identificativo_titolarita,
+  t.descrizione_diritto as diritto,
+  concat(t.quota_numeratore_possesso, '/', t.quota_denominatore_possesso) AS quota,
+  p.identificativo_soggetto as identificativo_soggetto_sogp,
+  p.cognome,
+  p.nome,
+  p.data_nascita,
+  p.codice_fiscale
+FROM titp t
+LEFT JOIN sogp p ON t.identificativo_soggetto = p.identificativo_soggetto;
+```
+```sql
+CREATE OR REPLACE VIEW titg_sogg AS SELECT
+  t.identificativo_immobile,
+  t.tipo_immobile,
+  t.identificativo_soggetto identificativo_soggetto_tit,
+  t.identificativo_titolarita,
+  t.descrizione_diritto as diritto,
+  concat(t.quota_numeratore_possesso, '/', t.quota_denominatore_possesso) AS quota,
+  g.identificativo_soggetto as identificativo_soggetto_sogg,
+  g.denominazione,
+  g.codice_amministrativo_sede,
+  g.codice_fiscale
+FROM titg t
+LEFT JOIN sogg g ON t.identificativo_soggetto = g.identificativo_soggetto;
+```
+```sql
+CREATE OR REPLACE VIEW tit_sogp_sogg AS
+SELECT
+g.identificativo_immobile as identificativo_immobile,
+g.tipo_immobile as tipo_immobile,
+'soggetto giuridico' as tipo_soggetto,
+g.diritto as diritto,
+g.quota as quota,
+g.identificativo_soggetto_tit as identificativo_soggetto_tit,
+g.identificativo_soggetto_sogg as identificativo_soggetto,
+g.denominazione as denominazione,
+g.codice_amministrativo_sede as codice_amministrativo_sede,
+NULL as data_nascita,
+g.codice_fiscale as codice_fiscale
+FROM catasto_fabbricati.titg_sogg g
+UNION ALL
+SELECT
+p.identificativo_immobile as identificativo_immobile,
+p.tipo_immobile as tipo_immobile,
+'persona fisica' as tipo_soggetto,
+p.diritto as diritto,
+p.quota as quota,
+p.identificativo_soggetto_tit as identificativo_soggetto_tit,
+p.identificativo_soggetto_sogp as identificativo_soggetto,
+concat(p.cognome, ' ', p.nome) as denominazione,
+NULL as codice_amministrativo_sede,
+p.data_nascita as data_nascita,
+p.codice_fiscale as codice_fiscale
+FROM catasto_fabbricati.titp_sogp p
+```
+### Join finale dei dati censuari del catasto fabbricati
+Ultimo passaggio è quello di unire le viste finali:
+
+fab1_2_3_4_5: contiene le informazioni sui fabbricati
+tit_sogp_sogg: contiene le informazioni sulle titolarità e sui soggetti
+```sql
+CREATE OR REPLACE VIEW dati_censuari_fab AS
+SELECT row_number() OVER ()::integer AS gid,
+fab.codice_amministrativo,
+fab.sezione,
+fab.identificativo_immobile AS identificativo_immobile_fab,
+fab.progressivo,
+fab.tipo_record,
+fab.zona,
+fab.categoria,
+fab.descrizione_categoria,
+fab.classe,
+fab.consistenza,
+fab.unita_misura_consistenza,
+fab.superficie,
+fab.rendita_lire,
+fab.rendita_euro,
+fab.lotto,
+fab.edificio,
+fab.scala,
+fab.interno_1,
+fab.interno_2,
+fab.piano_1,
+fab.piano_2,
+fab.piano_3,
+fab.piano_4,
+fab.partita,
+fab.foglio,
+fab.numero,
+fab.denominatore,
+fab.subalterno,
+fab.edificialita,
+fab.immobili_graffati,
+fab.indirizzo_completo AS indirizzo,
+concat_ws (' ', nullif(trim(fab.indirizzo_completo), ''), nullif(trim(fab.piano_concat), ''), nullif(trim(fab.interno_concat), '') ) AS indirizzo_completo,
+fab.utilita_comuni,
+fab.riserva,
+	CASE -- nuova colonna che permette di assegnare un codice univoco per foglio e particella. Servirà per la relazione con le geometrie del catasto
+	WHEN length(fab.foglio) = 1 THEN concat(fab.codice_amministrativo, '_000', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
+    	ELSE
+		(
+			CASE
+		 	WHEN length(fab.foglio) = 2 THEN concat(fab.codice_amministrativo, '_00', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
+		 	ELSE
+				(
+					CASE
+			 		WHEN length(fab.foglio) = 3 THEN concat(fab.codice_amministrativo, '_0', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
+			 		ELSE
+			 			(
+							CASE
+							WHEN length(fab.foglio) = 4 THEN concat(fab.codice_amministrativo, '_', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
+                					END
+						)
+					END
+				)
+			END
+		)
+	END AS com_fg_plla,
+t.*
+FROM fab1_2_3_4_5 as fab
+RIGHT JOIN tit_sogp_sogg t ON fab.identificativo_immobile = t.identificativo_immobile;
+```
+#### Join finale dei dati censuari del catasto terreni
+Ultimo passaggio è quello di unire le viste finali:
+- `ter1_colnames`: contiene le informazioni sulla particella
+- `tit_sogp_sogg_partite_speciali`: contiene le informazioni sulle titolarità e sui soggetti
 
 ## 8. Relazioni in QGIS <a name="#qgis_relations"></a>
 In QGIS caricare il vettoriale del catasto terreni e/o fabbricati. Creare un campo `com_fg_plla`, con il calcolatore dei campi, identificativo della particella/fabbricato costiuito da: codicecomune_foglio_particella.
