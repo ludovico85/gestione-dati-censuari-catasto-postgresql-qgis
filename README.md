@@ -1355,7 +1355,7 @@ p.data_nascita as data_nascita,
 p.codice_fiscale as codice_fiscale
 FROM catasto_fabbricati.titp_sogp p
 ```
-### Join finale dei dati censuari del catasto fabbricati
+#### Join finale dei dati censuari del catasto fabbricati
 Ultimo passaggio è quello di unire le viste finali:
 
 fab1_2_3_4_5: contiene le informazioni sui fabbricati
@@ -1422,10 +1422,6 @@ t.*
 FROM fab1_2_3_4_5 as fab
 RIGHT JOIN tit_sogp_sogg t ON fab.identificativo_immobile = t.identificativo_immobile;
 ```
-#### Join finale dei dati censuari del catasto terreni
-Ultimo passaggio è quello di unire le viste finali:
-- `ter1_colnames`: contiene le informazioni sulla particella
-- `tit_sogp_sogg_partite_speciali`: contiene le informazioni sulle titolarità e sui soggetti
 
 ## 8. Relazioni in QGIS <a name="#qgis_relations"></a>
 In QGIS caricare il vettoriale del catasto terreni e/o fabbricati. Creare un campo `com_fg_plla`, con il calcolatore dei campi, identificativo della particella/fabbricato costiuito da: codicecomune_foglio_particella.
