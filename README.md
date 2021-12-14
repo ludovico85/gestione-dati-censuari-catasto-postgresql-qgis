@@ -1,4 +1,4 @@
-CONCAT# gestione-dati-censuari-catasto-postgresql-qgis
+#gestione-dati-censuari-catasto-postgresql-qgis
 Contiene le query di postgresql per l'importazione dei dati censuari catastali e la loro gestione in QGIS
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/ludovico85/gestione-dati-censuari-catasto-postgresql-qgis?color=green&style=plastic)
