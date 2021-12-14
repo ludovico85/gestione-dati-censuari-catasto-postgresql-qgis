@@ -603,7 +603,7 @@ CREATE OR REPLACE VIEW ter1_colnames AS SELECT
   REGEXP_REPLACE(t.field_36, '^0+', '') AS partita,
   p.descrizione AS descrizione_partita,
   CASE
-	 WHEN t.field_3 = ter4.field_3 THEN 'si' ELSE 'no'
+    WHEN t.field_3 = ter4.field_3 THEN 'si' ELSE 'no'
   END AS porzioni
 FROM ter1 t
 LEFT JOIN qualita q ON t.field_12 = q.codice
@@ -863,8 +863,8 @@ SELECT
     WHEN LENGTH(ter.foglio) = 1 THEN CONCAT(ter.codice_amministrativo, '_000', ter.foglio, '_', REGEXP_REPLACE(ter.numero, '^0+', ''))
     WHEN LENGTH(ter.foglio) = 2 THEN CONCAT(ter.codice_amministrativo, '_00', ter.foglio, '_', REGEXP_REPLACE(ter.numero, '^0+', ''))
     WHEN LENGTH(ter.foglio) = 3 THEN CONCAT(ter.codice_amministrativo, '_0', ter.foglio, '_', REGEXP_REPLACE(ter.numero, '^0+', ''))
-    WHEN LENGTH(ter.foglio) = 4 THEN CONCAT(ter.codice_amministrativo, '_', ter.foglio, '_', REGEXP_REPLACE(ter.numero, '^0+', ''))          				
-	END AS com_fg_plla,
+    WHEN LENGTH(ter.foglio) = 4 THEN CONCAT(ter.codice_amministrativo, '_', ter.foglio, '_', REGEXP_REPLACE(ter.numero, '^0+', ''))
+  END AS com_fg_plla,
   t.identificativo_immobile AS identificativo_immobile_tit,
   t.tipo_soggetto,
   t.diritto,
