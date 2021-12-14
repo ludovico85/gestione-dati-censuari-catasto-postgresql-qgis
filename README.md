@@ -890,7 +890,7 @@ SELECT
   t.data_nascita,
   t.codice_fiscale
 FROM ter1_colnames AS ter
-RIGHT JOIN tit_sogp_sogg_partite_speciali t ON ter.identificativo_immobile = t.identificativo_immobile;
+LEFT JOIN tit_sogp_sogg_partite_speciali t ON ter.identificativo_immobile = t.identificativo_immobile;
 ```
 ## 7. Elaborazione dei dati nello schema `catasto_fab` <a name="catasto_fab"></a> ***In costruzione***
 Le elaborazioni possono essere fatte in PostgreSQL tramite command line, con PgAdmin oppure direttamente in QGIS utilizzando lo strumento `Esegui SQL PostgreSQL`
@@ -1436,6 +1436,6 @@ Interrogare la particella/fabbricato!
 ## 9. Modelli QGIS
 Per automatizzare l'intero processo sono stati creati 2 modelli di QGIS (QGIS v. >3.16), uno per il catasto terreni e uno per il catasto fabbricati. Per utilizzare il modello occorre:
 - una connessione valida ad un database PostgreSQL
-- le tabelle .TER/.FAB, .SOG e .TIT caricate in QGIS come descritto al [punto 5](qgis)
+- le tabelle .TER/.FAB, .SOG e .TIT caricate in QGIS come descritto al [punto 5](#qgis)
 
 #### Download modelli
