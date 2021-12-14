@@ -1108,7 +1108,7 @@ SELECT
   field_29 AS civico_3_c,
   field_30 AS codice_strada_c,
   CASE
-  	WHEN field_11 IS NULL AND field_10 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_9, '^0+', '')), ''))
+    WHEN field_11 IS NULL AND field_10 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_9, '^0+', '')), ''))
     WHEN field_11 IS NULL AND field_10 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_9, '^0+', '')), ''))
     WHEN field_11 IS NOT NULL AND field_10 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_10, '^0+', '')), ''))
   END AS indirizzo_completo,
