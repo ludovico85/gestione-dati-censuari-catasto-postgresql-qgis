@@ -1113,19 +1113,19 @@ SELECT
     WHEN field_11 IS NOT NULL AND field_10 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_10, '^0+', '')), ''))
   END AS indirizzo_completo,
   CASE
-  	WHEN field_17 IS NULL AND field_16 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_15, '^0+', '')), ''))
+    WHEN field_17 IS NULL AND field_16 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_15, '^0+', '')), ''))
     WHEN field_17 IS NULL AND field_16 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_15, '^0+', '')), ''))
     WHEN field_17 IS NOT NULL AND field_16 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_16, '^0+', '')),''))
   END AS indirizzo_completo_a,
   CASE
-  	WHEN field_23 IS NULL AND field_22 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_21, '^0+', '')),''))
+    WHEN field_23 IS NULL AND field_22 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_21, '^0+', '')),''))
     WHEN field_23 IS NULL AND field_22 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_21, '^0+', '')),''))
     WHEN field_23 IS NOT NULL AND field_22 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_22, '^0+', '')),''))
   END AS indirizzo_completo_b,
   CASE
-  	WHEN field_29 IS NULL AND field_28 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_27, '^0+', '')),''))
-  	WHEN field_29 IS NULL AND field_28 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_27, '^0+', '')),''))
-  	WHEN field_29 IS NOT NULL AND field_28 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_28, '^0+', '')),''))
+    WHEN field_29 IS NULL AND field_28 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_27, '^0+', '')),''))
+    WHEN field_29 IS NULL AND field_28 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_27, '^0+', '')),''))
+    WHEN field_29 IS NOT NULL AND field_28 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_28, '^0+', '')),''))
   END AS indirizzo_completo_c
 FROM fab3
 LEFT JOIN codice_toponimo t ON CAST(fab3.field_7 AS INTEGER) = t.codice
