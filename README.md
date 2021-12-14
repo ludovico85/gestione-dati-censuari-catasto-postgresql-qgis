@@ -1019,7 +1019,8 @@ Dalla vista `fab1` si selezionano alcuni campi d'interesse: i dati generali (da 
 
 gli elementi identificativi della particella (da field_7 a field_11), i dati caratteristici della particella (da field_12 a field_23) e il numero della partita (field_36).
 ```sql
-CREATE OR REPLACE VIEW fab1_colnames AS SELECT
+CREATE OR REPLACE VIEW fab1_colnames AS
+SELECT
   field_1 AS codice_amministrativo,
   field_2 AS sezione,
   field_3 AS identificativo_immobile,
@@ -1031,10 +1032,10 @@ CREATE OR REPLACE VIEW fab1_colnames AS SELECT
   c.descrizione AS descrizione_categoria,
   field_9 AS classe,
   field_10 AS consistenza,
-  CASE WHEN field_8 LIKE 'A%' THEN 'vani' ELSE (
-    CASE WHEN field_8 LIKE 'B%' THEN 'metri cubi' ELSE (
-      CASE WHEN field_8 LIKE 'C%' THEN 'metri quadri' END)
-    END)
+  CASE
+    WHEN field_8 LIKE 'A%' THEN 'vani'
+    WHEN field_8 LIKE 'B%' THEN 'metri cubi'
+    WHEN field_8 LIKE 'C%' THEN 'metri quadri'
   END AS unita_misura_consistenza,
   field_11 AS superficie,
   field_12 AS rendita_lire,
@@ -1044,13 +1045,16 @@ CREATE OR REPLACE VIEW fab1_colnames AS SELECT
   field_16 AS scala,
   field_17 AS interno_1,
   field_18 AS interno_2,
-  CASE WHEN field_17 IS NOT NULL THEN concat ('Int. ', concat_ws('-', nullif(trim(regexp_replace(fab1.field_17, '^0+', '')), ''), nullif(trim(regexp_replace(fab1.field_18, '^0+', '')), ''))) END AS interno_concat,
+  CASE
+    WHEN field_17 IS NOT NULL THEN concat ('Int. ', concat_ws('-', nullif(trim(regexp_replace(fab1.field_17, '^0+', '')), ''), nullif(trim(regexp_replace(fab1.field_18, '^0+', '')), '')))
+  END AS interno_concat,
   field_19 AS piano_1,
   field_20 AS piano_2,
   field_21 AS piano_3,
   field_22 AS piano_4,
-  CASE WHEN field_19 IS NOT NULL THEN concat ('Piano ', concat_ws('--', nullif(trim(regexp_replace(fab1.field_19, '^0+', '')), ''), nullif(trim(regexp_replace(fab1.field_20, '^0+', '')), ''),  nullif(trim(regexp_replace(fab1.field_21, '^0+', '')), ''),
-  nullif(trim(regexp_replace(fab1.field_22, '^0+', '')), ''))) END AS piano_concat,
+  CASE
+    WHEN field_19 IS NOT NULL THEN concat ('Piano ', concat_ws('--', nullif(trim(regexp_replace(fab1.field_19, '^0+', '')), ''), nullif(trim(regexp_replace(fab1.field_20, '^0+', '')),''),  nullif(trim(regexp_replace(fab1.field_21, '^0+', '')), ''), nullif(trim(regexp_replace(fab1.field_22, '^0+', '')), '')))
+  END AS piano_concat,
   field_35 as partita
 FROM fab1
 LEFT JOIN categoria_catastale c ON fab1.field_8 = c.codice
@@ -1059,7 +1063,8 @@ LEFT JOIN categoria_catastale c ON fab1.field_8 = c.codice
 Dalla vista `fab2` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), la tabella identificativi (da field_7 a field_12). Gli immobili graffati (campi aggiuntivi) sono stati solo codificati con si/no (presenza/assenza).
 
 ```sql
-CREATE OR REPLACE VIEW fab2_colnames AS SELECT
+CREATE OR REPLACE VIEW fab2_colnames AS
+SELECT
   field_1 AS codice_amministrativo,
   field_2 AS sezione,
   field_3 AS identificativo_immobile,
@@ -1072,14 +1077,17 @@ CREATE OR REPLACE VIEW fab2_colnames AS SELECT
   field_10 AS denominatore,
   field_11 AS subalterno,
   field_12 AS edificialita,
-  CASE WHEN field_14 IS NOT NULL THEN 'si' ELSE 'no' END AS immobili_graffati
+  CASE
+    WHEN field_14 IS NOT NULL THEN 'si' ELSE 'no'
+  END AS immobili_graffati
 FROM fab2
 ```
 #### Tipo di record 3
 Dalla vista `fab3` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), la tabella indirizzi (da field_7 a field_12). Dal momento in cui possono essere presenti più indirizzi (con altrettanti campi), è non avendo la possibilità di conoscere a priori se esistono più indirizzi, è stato scelto di considerarne un numero massimo di 4 (dato che si può variare). L'indirizzo valido è sempre l'ultimo.
 
 ```sql
-CREATE OR REPLACE VIEW fab3_colnames AS SELECT
+CREATE OR REPLACE VIEW fab3_colnames AS
+SELECT
   field_1 AS codice_amministrativo,
   field_2 AS sezione,
   field_3 AS identificativo_immobile,
@@ -1110,31 +1118,25 @@ CREATE OR REPLACE VIEW fab3_colnames AS SELECT
   field_28 AS civico_2_c,
   field_29 AS civico_3_c,
   field_30 AS codice_strada_c,
-  CASE WHEN field_11 IS NULL AND field_10 IS NULL THEN concat_ws (' ', nullif(trim(t.denominazione), ''), nullif(trim(field_8), ''), nullif(trim(regexp_replace(field_9, '^0+', '')), '')) ELSE
-  (
-    CASE WHEN field_11 IS NULL AND field_10 IS NOT NULL THEN concat_ws (' ', nullif(trim(t.denominazione), ''), nullif(trim(field_8), ''), nullif(trim(regexp_replace(field_9, '^0+', '')), '')) ELSE
-	 	(
-      CASE WHEN field_11 IS NOT NULL AND field_10 IS NOT NULL THEN concat_ws (' ', nullif(trim(t.denominazione), ''), nullif(trim(field_8), ''), nullif(trim(regexp_replace(field_10, '^0+', '')), ''))
-      END)
-    END)
+  CASE
+  	WHEN field_11 IS NULL AND field_10 IS NULL THEN concat_ws (' ', nullif(trim(t.denominazione), ''), nullif(trim(field_8), ''), nullif(trim(regexp_replace(field_9, '^0+', '')), ''))
+    WHEN field_11 IS NULL AND field_10 IS NOT NULL THEN concat_ws (' ', nullif(trim(t.denominazione), ''), nullif(trim(field_8), ''), nullif(trim(regexp_replace(field_9, '^0+', '')), ''))
+    WHEN field_11 IS NOT NULL AND field_10 IS NOT NULL THEN concat_ws (' ', nullif(trim(t.denominazione), ''), nullif(trim(field_8), ''), nullif(trim(regexp_replace(field_10, '^0+', '')), ''))
   END AS indirizzo_completo,
-  CASE WHEN field_17 IS NULL AND field_16 IS NULL THEN concat_ws (' ', nullif(trim(a.denominazione), ''), nullif(trim(field_14), ''), nullif(trim(regexp_replace(field_15, '^0+', '')), '')) ELSE (
-    CASE WHEN field_17 IS NULL AND field_16 IS NOT NULL THEN concat_ws (' ', nullif(trim(a.denominazione), ''), nullif(trim(field_14), ''), nullif(trim(regexp_replace(field_15, '^0+', '')), '')) ELSE (
-      CASE WHEN field_17 IS NOT NULL AND field_16 IS NOT NULL THEN concat_ws (' ', nullif(trim(a.denominazione), ''), nullif(trim(field_14), ''), nullif(trim(regexp_replace(field_16, '^0+', '')), ''))
-      END)
-    END)
+  CASE
+  	WHEN field_17 IS NULL AND field_16 IS NULL THEN concat_ws (' ', nullif(trim(a.denominazione), ''), nullif(trim(field_14), ''), nullif(trim(regexp_replace(field_15, '^0+', '')), ''))
+    WHEN field_17 IS NULL AND field_16 IS NOT NULL THEN concat_ws (' ', nullif(trim(a.denominazione), ''), nullif(trim(field_14), ''), nullif(trim(regexp_replace(field_15, '^0+', '')), ''))
+    WHEN field_17 IS NOT NULL AND field_16 IS NOT NULL THEN concat_ws (' ', nullif(trim(a.denominazione), ''), nullif(trim(field_14), ''), nullif(trim(regexp_replace(field_16, '^0+', '')),''))
   END AS indirizzo_completo_a,
-  CASE WHEN field_23 IS NULL AND field_22 IS NULL THEN concat_ws (' ', nullif(trim(b.denominazione), ''), nullif(trim(field_20), ''), nullif(trim(regexp_replace(field_21, '^0+', '')), '')) ELSE (
-    CASE WHEN field_23 IS NULL AND field_22 IS NOT NULL THEN concat_ws (' ', nullif(trim(b.denominazione), ''), nullif(trim(field_20), ''), nullif(trim(regexp_replace(field_21, '^0+', '')), '')) ELSE (
-      CASE WHEN field_23 IS NOT NULL AND field_22 IS NOT NULL THEN concat_ws (' ', nullif(trim(b.denominazione), ''), nullif(trim(field_20), ''), nullif(trim(regexp_replace(field_22, '^0+', '')), ''))
-      END)
-	 END)
+  CASE
+  	WHEN field_23 IS NULL AND field_22 IS NULL THEN concat_ws (' ', nullif(trim(b.denominazione), ''), nullif(trim(field_20), ''), nullif(trim(regexp_replace(field_21, '^0+', '')),''))
+    WHEN field_23 IS NULL AND field_22 IS NOT NULL THEN concat_ws (' ', nullif(trim(b.denominazione), ''), nullif(trim(field_20), ''), nullif(trim(regexp_replace(field_21, '^0+', '')),''))
+    WHEN field_23 IS NOT NULL AND field_22 IS NOT NULL THEN concat_ws (' ', nullif(trim(b.denominazione), ''), nullif(trim(field_20), ''), nullif(trim(regexp_replace(field_22, '^0+', '')),''))
   END AS indirizzo_completo_b,
-  CASE WHEN field_29 IS NULL AND field_28 IS NULL THEN concat_ws (' ', nullif(trim(c.denominazione), ''), nullif(trim(field_26), ''), nullif(trim(regexp_replace(field_27, '^0+', '')), '')) ELSE (
-    CASE WHEN field_29 IS NULL AND field_28 IS NOT NULL THEN concat_ws (' ', nullif(trim(c.denominazione), ''), nullif(trim(field_26), ''), nullif(trim(regexp_replace(field_27, '^0+', '')), '')) ELSE (
-      CASE WHEN field_29 IS NOT NULL AND field_28 IS NOT NULL THEN concat_ws (' ', nullif(trim(c.denominazione), ''), nullif(trim(field_26), ''), nullif(trim(regexp_replace(field_28, '^0+', '')), ''))
-      END)
-    END)
+  CASE
+  	WHEN field_29 IS NULL AND field_28 IS NULL THEN concat_ws (' ', nullif(trim(c.denominazione), ''), nullif(trim(field_26), ''), nullif(trim(regexp_replace(field_27, '^0+', '')),''))
+  	WHEN field_29 IS NULL AND field_28 IS NOT NULL THEN concat_ws (' ', nullif(trim(c.denominazione), ''), nullif(trim(field_26), ''), nullif(trim(regexp_replace(field_27, '^0+', '')),''))
+  	WHEN field_29 IS NOT NULL AND field_28 IS NOT NULL THEN concat_ws (' ', nullif(trim(c.denominazione), ''), nullif(trim(field_26), ''), nullif(trim(regexp_replace(field_28, '^0+', '')),''))
   END AS indirizzo_completo_c
 FROM fab3
 LEFT JOIN codice_toponimo t ON CAST(fab3.field_7 AS INTEGER) = t.codice
@@ -1147,22 +1149,23 @@ Dalla vista `fab4` si selezionano alcuni campi d'interesse: i dati generali (da 
 ```sql
 CREATE OR REPLACE VIEW fab4_colnames AS
 SELECT
-field_1 AS codice_amministrativo,
-field_2 AS sezione,
-field_3 AS identificativo_immobile,
-field_4 AS tipo_immboile,
-field_5 AS progressivo,
-field_6 AS tipo_record,
-field_7 AS sezione_urbana,
-field_8 AS foglio,
-field_9 AS numero,
-field_10 AS denominatore,
-field_11 AS subalterno
+  field_1 AS codice_amministrativo,
+  field_2 AS sezione,
+  field_3 AS identificativo_immobile,
+  field_4 AS tipo_immboile,
+  field_5 AS progressivo,
+  field_6 AS tipo_record,
+  field_7 AS sezione_urbana,
+  field_8 AS foglio,
+  field_9 AS numero,
+  field_10 AS denominatore,
+  field_11 AS subalterno
 FROM fab4
 ```
 ### fab1_2_3_4_5
 ```sql
-CREATE OR REPLACE VIEW fab1_2_3_4_5 AS SELECT
+CREATE OR REPLACE VIEW fab1_2_3_4_5 AS
+SELECT
   fab1.codice_amministrativo,
   fab1.sezione,
   fab1.identificativo_immobile,
@@ -1195,18 +1198,19 @@ CREATE OR REPLACE VIEW fab1_2_3_4_5 AS SELECT
   fab2.subalterno,
   fab2.edificialita,
   fab2.immobili_graffati,
-  CASE WHEN fab3.indirizzo_completo IS NOT NULL AND fab3.indirizzo_completo_a = '' AND fab3.indirizzo_completo_b = '' AND indirizzo_completo_c = '' THEN indirizzo_completo ELSE (
-    CASE WHEN fab3.indirizzo_completo_a IS NOT NULL AND fab3.indirizzo_completo_b = '' AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_a ELSE (
-      CASE WHEN fab3.indirizzo_completo_b IS NOT NULL AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_b ELSE (
-        CASE WHEN fab3.indirizzo_completo_c IS NOT NULL THEN fab3.indirizzo_completo_c
-        END)
-      END)
-    END)
+  CASE
+    WHEN fab3.indirizzo_completo IS NOT NULL AND fab3.indirizzo_completo_a = '' AND fab3.indirizzo_completo_b = '' AND indirizzo_completo_c = '' THEN indirizzo_completo
+    WHEN fab3.indirizzo_completo_a IS NOT NULL AND fab3.indirizzo_completo_b = '' AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_a
+    WHEN fab3.indirizzo_completo_b IS NOT NULL AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_b
+    WHEN fab3.indirizzo_completo_c IS NOT NULL THEN fab3.indirizzo_completo_c
   END AS indirizzo_completo,
-  CASE WHEN fab4.identificativo_immobile = fab1.identificativo_immobile THEN 'utilità comuni dell''unità immobiliare' END AS utilita_comuni,
-  CASE WHEN fab5.field_3 = fab1.identificativo_immobile THEN 'riserva dell''unità immobiliare' END AS riserva
-FROM
-fab1_colnames fab1
+  CASE
+    WHEN fab4.identificativo_immobile = fab1.identificativo_immobile THEN 'utilità comuni dell''unità immobiliare'
+  END AS utilita_comuni,
+  CASE
+    WHEN fab5.field_3 = fab1.identificativo_immobile THEN 'riserva dell''unità immobiliare'
+  END AS riserva
+FROM fab1_colnames fab1
 LEFT JOIN fab2_colnames fab2 ON fab1.identificativo_immobile = fab2.identificativo_immobile
 LEFT JOIN fab3_colnames fab3 ON fab1.identificativo_immobile = fab3.identificativo_immobile
 LEFT JOIN fab4_colnames fab4 ON fab1.identificativo_immobile = fab4.identificativo_immobile
@@ -1217,7 +1221,8 @@ LEFT JOIN partite_speciali_fabbricati psf ON fab1.partita = psf.codice
 Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolairtà delle persone fisiche e dei soggetti giuridici.
 
 ```sql
-CREATE OR REPLACE VIEW tit_colnames AS SELECT DISTINCT ON (field_28)
+CREATE OR REPLACE VIEW tit_colnames AS
+SELECT DISTINCT ON (field_28)
   field_1 AS codice_amministrativo,
   field_2 AS sezione,
   field_3 AS identificativo_soggetto,
@@ -1253,19 +1258,22 @@ FROM tit
 LEFT JOIN catasto_terreni.codici_diritto d ON regexp_replace(tit.field_7, '\s', '', 'g') = d.codice
 ```
 ```sql
-CREATE OR REPLACE VIEW titp AS SELECT *
+CREATE OR REPLACE VIEW titp AS
+SELECT *
 FROM tit_colnames
 WHERE tipo_soggetto = 'P';
 ```
 ```sql
-CREATE OR REPLACE VIEW titg AS SELECT *
+CREATE OR REPLACE VIEW titg AS
+SELECT *
 FROM tit_colnames
 WHERE tipo_soggetto = 'G';
 ```
 #### Soggetti
-Si ricostiuiscono dapprima i nomi dei campi per le perosne fisiche e i soggetti giuridici.
+Si ricostiuiscono dapprima i nomi dei campi per le persone fisiche e i soggetti giuridici.
 ```sql
-CREATE OR REPLACE VIEW sogp AS SELECT
+CREATE OR REPLACE VIEW sogp AS
+SELECT
   field_1 AS codice_amministrativo,
   field_2 AS sezione,
   field_3 AS identificativo_soggetto,
@@ -1281,7 +1289,8 @@ FROM sog
 WHERE field_4 = 'P';
 ```
 ```sql
-CREATE OR REPLACE VIEW sogg AS SELECT
+CREATE OR REPLACE VIEW sogg AS
+SELECT
   field_1 AS codice_amministrativo,
   field_2 AS sezione,
   field_3 AS identificativo_soggetto,
@@ -1295,7 +1304,8 @@ WHERE field_4 = 'G';
 #### Join titolarità soggetti
 Si ricostituiscono le relazioni tra le titolairtà e i soggetti (giuridici e persone fisiche) e successivamente si esegue l'union tra le due viste in modo da avere un un'unica vista con tutte le relazioni.
 ```sql
-CREATE OR REPLACE VIEW titp_sogp AS SELECT
+CREATE OR REPLACE VIEW titp_sogp AS
+SELECT
   t.identificativo_immobile,
   t.tipo_immobile,
   t.identificativo_soggetto as identificativo_soggetto_tit,
@@ -1311,7 +1321,8 @@ FROM titp t
 LEFT JOIN sogp p ON t.identificativo_soggetto = p.identificativo_soggetto;
 ```
 ```sql
-CREATE OR REPLACE VIEW titg_sogg AS SELECT
+CREATE OR REPLACE VIEW titg_sogg AS
+SELECT
   t.identificativo_immobile,
   t.tipo_immobile,
   t.identificativo_soggetto identificativo_soggetto_tit,
@@ -1328,97 +1339,81 @@ LEFT JOIN sogg g ON t.identificativo_soggetto = g.identificativo_soggetto;
 ```sql
 CREATE OR REPLACE VIEW tit_sogp_sogg AS
 SELECT
-g.identificativo_immobile as identificativo_immobile,
-g.tipo_immobile as tipo_immobile,
-'soggetto giuridico' as tipo_soggetto,
-g.diritto as diritto,
-g.quota as quota,
-g.identificativo_soggetto_tit as identificativo_soggetto_tit,
-g.identificativo_soggetto_sogg as identificativo_soggetto,
-g.denominazione as denominazione,
-g.codice_amministrativo_sede as codice_amministrativo_sede,
-NULL as data_nascita,
-g.codice_fiscale as codice_fiscale
-FROM catasto_fabbricati.titg_sogg g
+  g.identificativo_immobile as identificativo_immobile,
+  g.tipo_immobile as tipo_immobile,
+  'soggetto giuridico' as tipo_soggetto,
+  g.diritto as diritto,
+  g.quota as quota,
+  g.identificativo_soggetto_tit as identificativo_soggetto_tit,
+  g.identificativo_soggetto_sogg as identificativo_soggetto
+  g.denominazione as denominazione,
+  g.codice_amministrativo_sede as codice_amministrativo_sede,
+  NULL as data_nascita,
+  g.codice_fiscale as codice_fiscale
+  FROM catasto_fabbricati.titg_sogg g
 UNION ALL
 SELECT
-p.identificativo_immobile as identificativo_immobile,
-p.tipo_immobile as tipo_immobile,
-'persona fisica' as tipo_soggetto,
-p.diritto as diritto,
-p.quota as quota,
-p.identificativo_soggetto_tit as identificativo_soggetto_tit,
-p.identificativo_soggetto_sogp as identificativo_soggetto,
-concat(p.cognome, ' ', p.nome) as denominazione,
-NULL as codice_amministrativo_sede,
-p.data_nascita as data_nascita,
-p.codice_fiscale as codice_fiscale
+  p.identificativo_immobile as identificativo_immobile,
+  p.tipo_immobile as tipo_immobile,
+  'persona fisica' as tipo_soggetto,
+  p.diritto as diritto,
+  p.quota as quota,
+  p.identificativo_soggetto_tit as identificativo_soggetto_tit,
+  p.identificativo_soggetto_sogp as identificativo_soggetto,
+  concat(p.cognome, ' ', p.nome) as denominazione,
+  NULL as codice_amministrativo_sede,
+  p.data_nascita as data_nascita,
+  p.codice_fiscale as codice_fiscale
 FROM catasto_fabbricati.titp_sogp p
 ```
 #### Join finale dei dati censuari del catasto fabbricati
 Ultimo passaggio è quello di unire le viste finali:
-
-fab1_2_3_4_5: contiene le informazioni sui fabbricati
-tit_sogp_sogg: contiene le informazioni sulle titolarità e sui soggetti
+- fab1_2_3_4_5: contiene le informazioni sui fabbricati
+- tit_sogp_sogg: contiene le informazioni sulle titolarità e sui soggetti
 ```sql
 CREATE OR REPLACE VIEW dati_censuari_fab AS
 SELECT row_number() OVER ()::integer AS gid,
-fab.codice_amministrativo,
-fab.sezione,
-fab.identificativo_immobile AS identificativo_immobile_fab,
-fab.progressivo,
-fab.tipo_record,
-fab.zona,
-fab.categoria,
-fab.descrizione_categoria,
-fab.classe,
-fab.consistenza,
-fab.unita_misura_consistenza,
-fab.superficie,
-fab.rendita_lire,
-fab.rendita_euro,
-fab.lotto,
-fab.edificio,
-fab.scala,
-fab.interno_1,
-fab.interno_2,
-fab.piano_1,
-fab.piano_2,
-fab.piano_3,
-fab.piano_4,
-fab.partita,
-fab.foglio,
-fab.numero,
-fab.denominatore,
-fab.subalterno,
-fab.edificialita,
-fab.immobili_graffati,
-fab.indirizzo_completo AS indirizzo,
-concat_ws (' ', nullif(trim(fab.indirizzo_completo), ''), nullif(trim(fab.piano_concat), ''), nullif(trim(fab.interno_concat), '') ) AS indirizzo_completo,
-fab.utilita_comuni,
-fab.riserva,
-	CASE -- nuova colonna che permette di assegnare un codice univoco per foglio e particella. Servirà per la relazione con le geometrie del catasto
-	WHEN length(fab.foglio) = 1 THEN concat(fab.codice_amministrativo, '_000', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
-    	ELSE
-		(
-			CASE
-		 	WHEN length(fab.foglio) = 2 THEN concat(fab.codice_amministrativo, '_00', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
-		 	ELSE
-				(
-					CASE
-			 		WHEN length(fab.foglio) = 3 THEN concat(fab.codice_amministrativo, '_0', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
-			 		ELSE
-			 			(
-							CASE
-							WHEN length(fab.foglio) = 4 THEN concat(fab.codice_amministrativo, '_', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
-                					END
-						)
-					END
-				)
-			END
-		)
-	END AS com_fg_plla,
-t.*
+  fab.codice_amministrativo,
+  fab.sezione,
+  fab.identificativo_immobile AS identificativo_immobile_fab,
+  fab.progressivo,
+  fab.tipo_record,
+  fab.zona,
+  fab.categoria,
+  fab.descrizione_categoria,
+  fab.classe,
+  fab.consistenza,
+  fab.unita_misura_consistenza,
+  fab.superficie,
+  fab.rendita_lire,
+  fab.rendita_euro,
+  fab.lotto,
+  fab.edificio,
+  fab.scala,
+  fab.interno_1,
+  fab.interno_2,
+  fab.piano_1,
+  fab.piano_2,
+  fab.piano_3,
+  fab.piano_4,
+  fab.partita,
+  fab.foglio,
+  fab.numero,
+  fab.denominatore,
+  fab.subalterno,
+  fab.edificialita,
+  fab.immobili_graffati,
+  fab.indirizzo_completo AS indirizzo,
+  concat_ws (' ', nullif(trim(fab.indirizzo_completo), ''), nullif(trim(fab.piano_concat), ''), nullif(trim(fab.interno_concat), '') ) AS indirizzo_completo,
+  fab.utilita_comuni,
+  fab.riserva,
+  CASE
+    WHEN length(fab.foglio) = 1 THEN concat(fab.codice_amministrativo, '_000', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
+    WHEN length(fab.foglio) = 2 THEN concat(fab.codice_amministrativo, '_00', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
+    WHEN length(fab.foglio) = 3 THEN concat(fab.codice_amministrativo, '_0', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
+    WHEN length(fab.foglio) = 4 THEN concat(fab.codice_amministrativo, '_', fab.foglio, '_', regexp_replace(fab.numero, '^0+', ''))
+  END AS com_fg_plla,
+  t.*
 FROM fab1_2_3_4_5 as fab
 RIGHT JOIN tit_sogp_sogg t ON fab.identificativo_immobile = t.identificativo_immobile;
 ```
