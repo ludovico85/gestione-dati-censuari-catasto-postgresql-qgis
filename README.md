@@ -14,7 +14,7 @@ Contiene le query di postgresql per l'importazione dei dati censuari catastali e
 6. [Elaborazione dei dati nello schema `catasto_ter`](#catasto_ter)
 7. [Elaborazione dei dati nello schema `catasto_fab`](#catasto_fab)
 8. [Relazioni in QGIS](#qgis_relations)
-
+9. [Modelli QGIS](#qgis_models)
 
 ## 1. Prerequisiti <a name="prerequisiti"></a>
 Software necessari:
@@ -892,7 +892,7 @@ SELECT
 FROM ter1_colnames AS ter
 LEFT JOIN tit_sogp_sogg_partite_speciali t ON ter.identificativo_immobile = t.identificativo_immobile;
 ```
-## 7. Elaborazione dei dati nello schema `catasto_fab` <a name="catasto_fab"></a> ***In costruzione***
+## 7. Elaborazione dei dati nello schema `catasto_fab` <a name="catasto_fab"></a>
 Le elaborazioni possono essere fatte in PostgreSQL tramite command line, con PgAdmin oppure direttamente in QGIS utilizzando lo strumento `Esegui SQL PostgreSQL`
 
 ### Creazione delle tabelle ausiliari `partite_speciali_fabbricati`, `categoria_catastale`, `codice_toponimo`, `codici_diritto`
@@ -1509,10 +1509,11 @@ Caricare la vista `dati_censuari_ter` (o `dati_censuari_fab`) dal database e cre
 
 Interrogare la particella/fabbricato!
 
-## 9. Modelli QGIS
+## 9. Modelli QGIS <a name="#qgis_models"></a>
 Per automatizzare l'intero processo sono stati creati 2 modelli di QGIS (QGIS v. >3.16), uno per il catasto terreni e uno per il catasto fabbricati. Per utilizzare il modello occorre:
 - una connessione valida ad un database PostgreSQL
 - le tabelle .TER/.FAB, .SOG e .TIT caricate in QGIS come descritto al [punto 5](#qgis)
+- le cartografie catastali come spiegato al [punto 8](#qgis_relations)
 
 #### Download modelli
 [modelli](./modelli/)
