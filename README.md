@@ -6,7 +6,7 @@ Contiene le query di postgresql per l'importazione dei dati censuari catastali e
 # Contenuti
 1. [Prerequisiti](#prerequisiti)
 2. [Breve descrizione dei dati catastali censuari](#descrizione)
-3. [Importazione delle cartografie catastali in CXF](#cxf)
+3. [Importazione delle cartografie catastali in CXF (opzionale)](#cxf)
 4. [Creazione del database e degli schemi in PostgreSQL](#db)
 5. [Importazione dei dati in QGIS](#qgis)
   5.1. [catasto terreni](#terreni)
@@ -20,7 +20,7 @@ Contiene le query di postgresql per l'importazione dei dati censuari catastali e
 Software necessari:
 - [QGIS](https://www.qgis.org/it/site/)
 - [PostgreSQL](https://www.postgresql.org/)
-- plugin per QGIS [cxf_in](https://github.com/saccon/CXF_in) (Opzionale)
+- plugin per QGIS [cxf_in](https://github.com/saccon/CXF_in) (opzionale)
 
 Dati:
 - Cartografie catastali in formato vettoriale (ad esempio importati dal plugin cxf_in)
@@ -52,7 +52,7 @@ Struttra finale del database:
        |-- titg_sogg (vista)
        |-- titp_sogp (vista)
        |-- tit_sogp_sogg_partite_speciali (vista)
-       |-- dati_cnsuari_ter
+       |-- dati_censuari_ter
      |-- catasto_fabbricati (schema)
        |-- fab (tabella)
        |-- tit (tabella)
@@ -60,9 +60,25 @@ Struttra finale del database:
        |-- partite_speciali_fabbricati (tabella)
        |-- categoria_catastale (tabella)
        |-- toponimo (tabella)
-       ...
-       ...
-       ...
+       |-- fab1 (vista)
+       |-- fab2 (vista)
+       |-- fab3 (vista)
+       |-- fab4 (vista)
+       |-- fab5 (vista)
+       |-- fab1_colnames (vista)
+       |-- fab2_colnames (vista)
+       |-- fab3_colnames (vista)
+       |-- fab4_colnames (vista)
+       |-- fab1_2_3_4_5 (vista)
+       |-- tit_colnames (vista)
+       |-- titg (vista)
+       |-- titp (vista)
+       |-- sogg (vista)
+       |-- sogp (vista)
+       |-- titg_sogg (vista)
+       |-- titp_sogp (vista)
+       |-- tit_sogp_sogg (vista)
+       |-- dati_censuari_fab (vista)
 ```
 
 ## 2. Breve descrizione dei dati catastali censuari <a name="descrizione"></a>
@@ -73,23 +89,19 @@ Per maggiori dettagli sui servizi riservati ai comuni di può consultare: https:
 I dati censuari sono costituiti da 4 tipi di file:
 
 - file fabbricati (.FAB);
-
 - file terreni (.TER);
-
 - file soggetti (.SOG);
-
 - file titolarità (.TIT);
-
 - file parametri della richiesta (.PRM).
 
 Ogni tipo di file è costituito da una tabella che può contenere diversi tipi di record. Il collegamento tra i tipi di file è assicurato dalla presenta di chiavi specifiche:
 
 - .FAB/.TER contengono la chiave identificativo immobile;
-
 - .SOG contiene la chiave identificativo soggetto;
-
 - .TIT contiene sia la chiave identificativo immobile che la chiave identificativo soggetto (oltre che la chiave identificativo titolarietà);
 
+## 3. Importazione delle cartografie catastali in CXF (opzionale)
+Utilizzare il plugin cfx_in per l'importazione delle cartografie catastali.
 ## 4. Creazione del database e degli schemi in PostgreSQL <a name="db"></a>
 - Creare un nuovo database in PostgreSQL
 - Creare uno schema denominato catasto_terreni e uno schemda denominato catasto_fabbricati
@@ -608,9 +620,10 @@ CREATE OR REPLACE VIEW ter1_colnames AS SELECT
 FROM ter1 t
 LEFT JOIN qualita q ON t.field_12 = q.codice
 LEFT JOIN partite_speciali_terreni p ON REGEXP_REPLACE(t.field_36, '^0+', '') = p.codice
-LEFT JOIN ter4 ON ter4.field_3 = t.field_3
+LEFT JOIN ter4 ON ter4.field_3 = t.field_3;
 ```
-#### Tipo di record 2 (da completare)
+#### Tipo di record 2
+Le deuzioni non sono state elaborate.
 #### Tipo di record 3
 Oltre ai dati generali, contiene il codice della riserva e la partita di iscrizione riserva, quest'ultima già presente nel campo partita di ter1_colnames. Nessuna operazione necessaria.
 #### Tipo di record 4
@@ -655,10 +668,10 @@ FROM ter4 t
 LEFT JOIN qualita a ON t.field_12 = a.codice
 LEFT JOIN qualita b ON t.field_12 = b.codice
 LEFT JOIN qualita c ON t.field_12 = c.codice
-LEFT JOIN qualita d ON t.field_12 = d.codice
+LEFT JOIN qualita d ON t.field_12 = d.codice;
 ```
 #### Titolarità
-Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolairtà delle persone fisiche e dei soggetti giuridici.
+Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolarità delle persone fisiche e dei soggetti giuridici.
 
 ```sql
 CREATE OR REPLACE VIEW tit_colnames AS SELECT DISTINCT ON (field_28)
@@ -741,7 +754,7 @@ FROM sog
 WHERE field_4 = 'G';
 ```
 #### Join titolarità soggetti
-Si ricostituiscono le relazioni tra le titolairtà e i soggetti (giuridici e persone fisiche) e successivamente si esegue l'union tra le due viste in modo da avere un un'unica vista con tutte le relazioni.
+Si ricostituiscono le relazioni tra le titolarità e i soggetti (giuridici e persone fisiche) e successivamente si esegue l'union tra le due viste in modo da avere un un'unica vista con tutte le relazioni.
 ```sql
 CREATE OR REPLACE VIEW titp_sogp AS
 SELECT
@@ -821,7 +834,7 @@ SELECT
   NULL AS data_nascita,
   NULL AS codice_fiscale
 FROM catasto_terreni.ter1_colnames AS t
-WHERE partita IN ('0','1','2','3','4','5')
+WHERE partita IN ('0','1','2','3','4','5');
 ```
 #### Join finale dei dati censuari del catasto terreni
 Ultimo passaggio è quello di unire le viste finali:
@@ -958,7 +971,8 @@ INSERT INTO categoria_catastale (codice, descrizione) VALUES
   ('F04','unità in corso di definizione'),
   ('F05','lastrico solare');
 ```
-##### Creazione tabella codice toponimo ***il database non è completo, bisogna inserire altre codifiche***
+##### Creazione tabella codice toponimo
+ ***il database non è completo, bisogna inserire altre codifiche***
 ```sql
 CREATE TABLE codice_toponimo (
   pk_id INTEGER PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,
@@ -996,11 +1010,11 @@ Il file `fab` è costituito da 5 differenti tipi record (field_6). Il fabbricato
 - TIPO DI RECORD 5: contiene le riserve dell'unità immobiliare
 
 ```sql
-CREATE OR REPLACE VIEW fab1 AS SELECT * from ter WHERE field_6 = '1';
-CREATE OR REPLACE VIEW fab2 AS SELECT * from ter WHERE field_6 = '2';
-CREATE OR REPLACE VIEW fab3 AS SELECT * from ter WHERE field_6 = '3';
-CREATE OR REPLACE VIEW fab4 AS SELECT * from ter WHERE field_6 = '4';
-CREATE OR REPLACE VIEW fab5 AS SELECT * from ter WHERE field_6 = '5';
+CREATE OR REPLACE VIEW fab1 AS SELECT * from fab WHERE field_6 = '1';
+CREATE OR REPLACE VIEW fab2 AS SELECT * from fab WHERE field_6 = '2';
+CREATE OR REPLACE VIEW fab3 AS SELECT * from fab WHERE field_6 = '3';
+CREATE OR REPLACE VIEW fab4 AS SELECT * from fab WHERE field_6 = '4';
+CREATE OR REPLACE VIEW fab5 AS SELECT * from fab WHERE field_6 = '5';
 ```
 #### Tipo di record 1
 Dalla vista `fab1` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), i dati relativi al classamento dell'unità immobiliare (da field_7 a field_13), i dati relativi all'ubicazione dell'immobile nel fabbricato (da field_14 a field_22) e la partita (field_35).
@@ -1046,7 +1060,7 @@ SELECT
   END AS piano_concat,
   field_35 AS partita
 FROM fab1
-LEFT JOIN categoria_catastale c ON fab1.field_8 = c.codice
+LEFT JOIN categoria_catastale c ON fab1.field_8 = c.codice;
 ```
 #### Tipo di record 2
 Dalla vista `fab2` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), la tabella identificativi (da field_7 a field_12). Gli immobili graffati (campi aggiuntivi) sono stati solo codificati con si/no (presenza/assenza).
@@ -1069,10 +1083,10 @@ SELECT
   CASE
     WHEN field_14 IS NOT NULL THEN 'si' ELSE 'no'
   END AS immobili_graffati
-FROM fab2
+FROM fab2;
 ```
 #### Tipo di record 3
-Dalla vista `fab3` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), la tabella indirizzi (da field_7 a field_12). Dal momento in cui possono essere presenti più indirizzi (con altrettanti campi), è non avendo la possibilità di conoscere a priori se esistono più indirizzi, è stato scelto di considerarne un numero massimo di 4 (dato che si può variare). L'indirizzo valido è sempre l'ultimo.
+Dalla vista `fab3` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), la tabella indirizzi (da field_7 a field_12). Dal momento in cui possono essere presenti più indirizzi (con altrettanti campi), e non avendo la possibilità di conoscere a priori se esistono più indirizzi, è stato scelto di considerarne un numero massimo di 4 (dato che si può variare modificando la query). L'indirizzo valido è sempre l'ultimo.
 
 ```sql
 CREATE OR REPLACE VIEW fab3_colnames AS
@@ -1131,7 +1145,7 @@ FROM fab3
 LEFT JOIN codice_toponimo t ON CAST(fab3.field_7 AS INTEGER) = t.codice
 LEFT JOIN codice_toponimo a ON CAST(fab3.field_13 AS INTEGER) = a.codice
 LEFT JOIN codice_toponimo b ON CAST(fab3.field_19 AS INTEGER) = b.codice
-LEFT JOIN codice_toponimo c ON CAST(fab3.field_25 AS INTEGER) = c.codice
+LEFT JOIN codice_toponimo c ON CAST(fab3.field_25 AS INTEGER) = c.codice;
 ```
 #### Tipo di record 4
 Dalla vista `fab4` si selezionano alcuni campi d'interesse: i dati generali (da field_1 a field_6), la tabella unità comuni (da field_7 a field_12).
@@ -1149,7 +1163,7 @@ SELECT
   field_9 AS numero,
   field_10 AS denominatore,
   field_11 AS subalterno
-FROM fab4
+FROM fab4;
 ```
 ### fab1_2_3_4_5
 ```sql
@@ -1204,10 +1218,10 @@ LEFT JOIN fab2_colnames fab2 ON fab1.identificativo_immobile = fab2.identificati
 LEFT JOIN fab3_colnames fab3 ON fab1.identificativo_immobile = fab3.identificativo_immobile
 LEFT JOIN fab4_colnames fab4 ON fab1.identificativo_immobile = fab4.identificativo_immobile
 LEFT JOIN fab5 fab5 ON fab1.identificativo_immobile = fab5.field_3
-LEFT JOIN partite_speciali_fabbricati psf ON fab1.partita = psf.codice
+LEFT JOIN partite_speciali_fabbricati psf ON fab1.partita = psf.codice;
 ```
 #### Titolarità
-Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolairtà delle persone fisiche e dei soggetti giuridici.
+Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolarità delle persone fisiche e dei soggetti giuridici.
 
 ```sql
 CREATE OR REPLACE VIEW tit_colnames AS
@@ -1244,7 +1258,7 @@ SELECT DISTINCT ON (field_28)
   field_30 AS descrizione_atto_generante,
   d.descrizione AS descrizione_diritto
 FROM tit
-LEFT JOIN catasto_terreni.codici_diritto d ON REGEXP_REPLACE(tit.field_7, '\s', '', 'g') = d.codice
+LEFT JOIN catasto_terreni.codici_diritto d ON REGEXP_REPLACE(tit.field_7, '\s', '', 'g') = d.codice;
 ```
 ```sql
 CREATE OR REPLACE VIEW titp AS
@@ -1291,7 +1305,7 @@ FROM sog
 WHERE field_4 = 'G';
 ```
 #### Join titolarità soggetti
-Si ricostituiscono le relazioni tra le titolairtà e i soggetti (giuridici e persone fisiche) e successivamente si esegue l'union tra le due viste in modo da avere un un'unica vista con tutte le relazioni.
+Si ricostituiscono le relazioni tra le titolarità e i soggetti (giuridici e persone fisiche) e successivamente si esegue l'union tra le due viste in modo da avere un un'unica vista con tutte le relazioni.
 ```sql
 CREATE OR REPLACE VIEW titp_sogp AS
 SELECT
@@ -1334,7 +1348,7 @@ SELECT
   g.diritto AS diritto,
   g.quota AS quota,
   g.identificativo_soggetto_tit AS identificativo_soggetto_tit,
-  g.identificativo_soggetto_sogg AS identificativo_soggetto
+  g.identificativo_soggetto_sogg AS identificativo_soggetto,
   g.denominazione AS denominazione,
   g.codice_amministrativo_sede AS codice_amministrativo_sede,
   NULL AS data_nascita,
@@ -1353,7 +1367,7 @@ SELECT
   NULL AS codice_amministrativo_sede,
   p.data_nascita AS data_nascita,
   p.codice_fiscale AS codice_fiscale
-FROM catasto_fabbricati.titp_sogp p
+FROM catasto_fabbricati.titp_sogp p;
 ```
 #### Join finale dei dati censuari del catasto fabbricati
 Ultimo passaggio è quello di unire le viste finali:
