@@ -1439,4 +1439,4 @@ Per automatizzare l'intero processo sono stati creati 2 modelli di QGIS (QGIS v.
 - le tabelle .TER/.FAB, .SOG e .TIT caricate in QGIS come descritto al [punto 5](#qgis)
 
 #### Download modelli
-[modelli](https://raw.githubusercontent.com/ludovico85/gestione-dati-censuari-catasto-postgresql-qgis/main/modelli/importazione_dati_censuari_terreni.model3)
+[modelli](./modelli/)
