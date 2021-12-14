@@ -1432,3 +1432,10 @@ Caricare la vista `dati_censuari_ter` (o `dati_censuari_fab`) dal database e cre
 - Campo del Layer figlio: com_fg_plla
 
 Interrogare la particella/fabbricato!
+
+## 9. Modelli QGIS
+Per automatizzare l'intero processo sono stati creati 2 modelli di QGIS (QGIS v. >3.16), uno per il catasto terreni e uno per il catasto fabbricati. Per utilizzare il modello occorre:
+- una connessione valida ad un database PostgreSQL
+- le tabelle .TER/.FAB, .SOG e .TIT caricate in QGIS come descritto al [punto 5](qgis)
+
+#### Download modelli
