@@ -106,8 +106,8 @@ Utilizzare il plugin cfx_in per l'importazione delle cartografie catastali.
 - Creare un nuovo database in PostgreSQL
 - Creare uno schema denominato catasto_terreni e uno schemda denominato catasto_fabbricati
 ```sql
-CREATE SCHEMA catasto_terreni;
-CREATE SCHEMA catasto_fabbricati;
+CREATE SCHEMA IF NOT EXISTS catasto_terreni;
+CREATE SCHEMA IF NOT EXISTS catasto_fabbricati;
 ```
 ## 5. Importazione dei dati in QGIS <a name="qgis"></a>
 ### 5.1. Catasto terreni <a name="terreni"></a>
@@ -1500,6 +1500,8 @@ RIGHT JOIN tit_sogp_sogg t ON fab.identificativo_immobile = t.identificativo_imm
 ## 8. Relazioni in QGIS <a name="#qgis_relations"></a>
 In QGIS caricare il vettoriale del catasto terreni e/o fabbricati. Creare un campo `com_fg_plla`, con il calcolatore dei campi, identificativo della particella/fabbricato costiuito da: codicecomune_foglio_particella.
 Ad esempio se si hanno i campi `codice_comune`, `foglio` e `mappale` basta utilizzare l'espressione: `CONCAT(codice_comune, '_',fg,'_', mappale)`. ***Il campo foglio deve avere 4 caratteri; Ad esempio il foglio 12 deve essere codificato come 0012.***
+Per i fabbricati il `mappale` è di solito accompagnato dal simbolo `+` e quindi bisonga utilizzare l'espressione:`CONCAT(codice_comune, '_',Foglio,'_',  regexp_replace(mappale, '\\+', ''))`.
+***N.B. Verficare sempre il nome dei campi***
 Caricare la vista `dati_censuari_ter` (o `dati_censuari_fab`) dal database e creare la seguente relazione nelle proprietà di progetto di QGIS:
 - Nome: Elenco intestati
 - Layer padre: il vettoriale

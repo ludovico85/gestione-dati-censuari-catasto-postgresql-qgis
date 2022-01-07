@@ -1,839 +1,850 @@
 <!DOCTYPE model>
 <Option type="Map">
-  <Option type="Map" name="children">
-    <Option type="Map" name="native:postgisexecutesql_1">
-      <Option value="true" type="bool" name="active"/>
+  <Option name="children" type="Map">
+    <Option name="native:postgisexecutesql_1" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="native:postgisexecutesql" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="320" type="double" name="component_pos_x"/>
-        <Option value="115" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="native:postgisexecutesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="320" name="component_pos_x" type="double"/>
+        <Option value="115" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Creazione dello schema catasto_fabbricati" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="133" type="double" name="component_pos_x"/>
-      <Option value="294" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
+      <Option value="Creazione dello schema catasto_fabbricati" name="component_description" type="QString"/>
+      <Option value="56" name="component_height" type="double"/>
+      <Option value="123" name="component_pos_x" type="double"/>
+      <Option value="316" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
       <Option name="dependencies"/>
-      <Option value="native:postgisexecutesql_1" type="QString" name="id"/>
+      <Option value="native:postgisexecutesql_1" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="DATABASE">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="SQL">
+        <Option name="SQL" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="CREATE SCHEMA catasto_fabbricati;" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="CREATE SCHEMA IF NOT EXISTS catasto_fabbricati;" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="native:postgisexecutesql_2">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="native:postgisexecutesql_2" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="native:postgisexecutesql" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="553" type="double" name="component_pos_x"/>
-        <Option value="349" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="native:postgisexecutesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="553" name="component_pos_x" type="double"/>
+        <Option value="349" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Creazione delle tabelle ausiliari partite_speciali_fabbricati, categoria_catastale, codice_toponimo, codici_diritto" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="431" type="double" name="component_pos_x"/>
-      <Option value="268" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option name="dependencies"/>
-      <Option value="native:postgisexecutesql_2" type="QString" name="id"/>
+      <Option value="Creazione delle tabelle ausiliari partite_speciali_fabbricati, categoria_catastale, codice_toponimo, codici_diritto" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="382" name="component_pos_x" type="double"/>
+      <Option value="246" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
+        <Option type="Map">
+          <Option value="native:postgisexecutesql_1" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
+        </Option>
+      </Option>
+      <Option value="native:postgisexecutesql_2" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="DATABASE">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="SQL">
+        <Option name="SQL" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE TABLE partite_speciali_fabbricati (&#xa;&#x9;pk_id INTEGER PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,&#xa;&#x9;codice TEXT,&#xa;&#x9;descrizione TEXT&#xa;);&#xa;&#xa;INSERT INTO partite_speciali_fabbricati (codice, descrizione) VALUES&#xa;  ('0', 'beni comuni censibili'),&#xa;  ('A', 'beni comuni non censibili'),&#xa;  ('R', 'fabbricati rurali'),&#xa;  ('C', 'unità immobiliari soppresse');&#xa;&#xa;CREATE TABLE categoria_catastale (&#xa;  pk_id integer NOT NULL GENERATED BY DEFAULT AS IDENTITY,&#xa;  codice TEXT,&#xa;  descrizione TEXT&#xa;);&#xa;&#xa;INSERT INTO categoria_catastale (codice, descrizione) VALUES&#xa;  ('A01','abitazioni di tipo signorile'),&#xa;  ('A02','abitazioni di tipo civile'),&#xa;  ('A03','abitazioni di tipo economico'),&#xa;  ('A04','abitazioni di tipo popolare'),&#xa;  ('A05','abitazioni di tipo ultapopolare'),&#xa;  ('A06','abitazioni di tipo rurale'),&#xa;  ('A07','abitazioni in villini'),&#xa;  ('A08','abitazioni in ville'),&#xa;  ('A09','castelli, palazzi di eminenti pregi artistici e storici'),&#xa;  ('A10','uffici e studi privati'),&#xa;  ('A11','abitazioni ed alloggi tipici dei luoghi'),&#xa;  ('B01','collegi, convitti; educandati, ricoveri orfanatrofi, ospizi, conventi, seminari, caserme'),&#xa;  ('B02','case di cura ed ospedali senza fini di lucro'),&#xa;  ('B03','prigioni e riformatori'),&#xa;  ('B04','uffici pubblici'),&#xa;  ('B05','scuole e laboratori scientifici'),&#xa;  ('B06','biblioteche, pinacoteche, musei, gallerie, accademie, circoli ricreativi e culturali senza fine di lucro, che non hanno sede in edifici della categoria A/9'),&#xa;  ('B07','cappelle ed oratori non destinati all’esercizio pubblico dei culti'),&#xa;  ('B08','magazzini sotterranei per deposito derrate'),&#xa;  ('C01','negozi e botteghe'),&#xa;  ('C02','magazzini e locali di deposito; cantine e soffitte se non unite all`unità immobiliare abitativa'),&#xa;  ('C03','laboratori per arti e mestieri'),&#xa;  ('C04','fabbricati e locali per esercizi sportivi'),&#xa;  ('C05','stabilimenti balneari e di acque curative'),&#xa;  ('C06','stalle, scuderie, rimesse ed autorimesse'),&#xa;  ('C07','tettoie; posti auto su aree private; posti auto coperti'),&#xa;  ('D01','opifici'),&#xa;  ('D02','alberghi e pensioni'),&#xa;  ('D03','teatri, cinematografi, sale per concerti e spettacoli; arene, parchi giochi, zoo-safari'),&#xa;  ('D04','case di cura e ospedali'),&#xa;  ('D05','istituti di credito, cambio ed assicurazione'),&#xa;  ('D06','fabbricati, locali, aree attrezzate per esercizi sportivi'),&#xa;  ('D07','fabbricati costruiti o adattati per le speciali esigenze di un`attivita` industriale e non suscettibile di destinazione diversa senza radicali trasformazioni'),&#xa;  ('D08','fabbricati costruiti o adattati per le speciali esigenze di un`attivita` commerciale e non suscettibili di destinazione diversa senza radicali trasformazioni'),&#xa;  ('D09','edifici galleggianti o assicurati a punti fissi del suolo; ponti privati soggetti a pedaggio; aree attrezzate per l’appoggio di palloni aerostatici e dirigibili'),&#xa;  ('D10','fabbricati per funzioni produttive connesse alle attività agricole'),&#xa;  ('E01','stazioni per servizi di trasporto terrestri, marittimi ed aerei; stazioni per metropolitane; stazioni per ferrovie; impianti di risalita in genere'),&#xa;  ('E02','ponti comunali e provinciali soggetti a pedaggio'),&#xa;  ('E03','costruzioni e fabbricati per speciali esigenze pubbliche'),&#xa;  ('E04','recinti chiusi per mercati, fiere, posteggio bestiame e simili'),&#xa;  ('E05','fabbricati costituenti fortificazioni e loro dipendenze'),&#xa;  ('E06','fari, semafori torri per rendere pubblico l’uso dell’orologio comunale'),&#xa;  ('E07','fabbricati per l’esercizio pubblico dei culti'),&#xa;  ('E08','fabbricati e costruzioni nei cimiteri esclusi i colombari, i sepolcri e le tombe di famiglia'),&#xa;  ('E09','edifici a destinazione particolare non compresi nelle categorie precedenti del gruppo E'),&#xa;  ('F01','area urbana'),&#xa;  ('F02','unità collabenti'),&#xa;  ('F03','unità in corso di costruzione'),&#xa;  ('F04','unità in corso di definizione'),&#xa;  ('F05','lastrico solare');&#xa;&#xa;CREATE TABLE codice_toponimo (&#xa;  pk_id INTEGER PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,&#xa;  codice INTEGER,&#xa;  denominazione TEXT&#xa;);&#xa;&#xa;INSERT INTO codice_toponimo (codice, denominazione) VALUES&#xa;  (0, ''),&#xa;  (54, 'Contrada'),&#xa;  (58, 'Corso'),&#xa;  (86, 'Largo'),&#xa;  (90, 'Località'),&#xa;  (130, 'Piazza'),&#xa;  (172, 'Salita'),&#xa;  (210, 'Strada'),&#xa;  (224, 'Traversa'),&#xa;  (236, 'Via'),&#xa;  (240, 'Viale'),&#xa;  (244, 'Vico'),&#xa;  (477, 'Prato'),&#xa;  (546, 'Strada comunale'),&#xa;  (566, 'Strada provinciale'),&#xa;  (661, 'Vico chiuso'),&#xa;  (843, 'Monte'),&#xa;  (894, 'Strada poderale');&#xa;&#xa;CREATE TABLE codici_diritto (&#xa;  pk_id INTEGER PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,&#xa;  codice TEXT,&#xa;  descrizione TEXT&#xa;);&#xa;&#xa;INSERT INTO codici_diritto (codice, descrizione) VALUES&#xa;  ('10','Proprietà'),&#xa;  ('1s','Proprietà  superficiaria'),&#xa;  ('1t','Proprietà  per l''area'),&#xa;  ('20','Nuda proprietà'),&#xa;  ('2s','Nuda proprietà  superficiaria'),&#xa;  ('30','Abitazione'),&#xa;  ('3','Comproprietario'),&#xa;  ('3s','Abitazione su proprietà  superficiaria'),&#xa;  ('40','Diritto del concedente'),&#xa;  ('4','Comproprietario per'),&#xa;  ('50','Enfiteusi'),&#xa;  ('60','Superficie'),&#xa;  ('70','Uso'),&#xa;  ('7','Comproprietario del fabbricato'),&#xa;  ('7s','Uso proprietà  superficiaria'),&#xa;  ('7s','Uso proprietà  superficiaria'),&#xa;  ('80','Usufrutto'),&#xa;  ('8a','Usufrutto con diritto di accrescimento'),&#xa;  ('8e','Usufrutto su enfiteusi'),&#xa;  ('8s','Usufrutto su proprietà  superficiaria'),&#xa;  ('8','Comproprietario per l''area'),&#xa;  ('90','Servità'),&#xa;  ('100','Oneri'),&#xa;  ('12','Concedente in parte'),&#xa;  ('14','Livellario parziale per'),&#xa;  ('15','Usufruttuario parziale per'),&#xa;  ('20','Livellario'),&#xa;  ('21','Livellario per'),&#xa;  ('22','Livellario in parte'),&#xa;  ('25','Enfiteuta in parte'),&#xa;  ('26','Colono perpetuo'),&#xa;  ('27','Colono perpetuo per'),&#xa;  ('28','Colono perpetuo in parte'),&#xa;  ('30','Usufruttuario parziale'),&#xa;  ('33','Cousufruttuario generale'),&#xa;  ('36','Usufruttuario generale di livello'),&#xa;  ('37','Usufruttuario parziale di livello'),&#xa;  ('39','Usufruttuario parziale di enfiteusi'),&#xa;  ('40','Usufruttuario generale di colonia'),&#xa;  ('41','Usufruttuario parziale di colonia'),&#xa;  ('42','Usufruttuario generale di dominio diretto'),&#xa;  ('43','Usufruttuario parziale di dominio diretto'),&#xa;  ('50','Cousufruttuario per'),&#xa;  ('52','Usuario perpetuo'),&#xa;  ('53','Usuario a tempo determinato'),&#xa;  ('60','Cousufruttuario di livello'),&#xa;  ('61','Cousufruttuario generale di livello'),&#xa;  ('62','Usufruttuario di livello di'),&#xa;  ('64','Comproprietario per parte di'),&#xa;  ('70','Usufruttuario di colonia per'),&#xa;  ('71','Usufruttuario di dominio diretto per'),&#xa;  ('72','Cousufruttuario generale con diritto di'),&#xa;  ('16','Utilista della superficie'),&#xa;  ('17','Utilista della superficie per'),&#xa;  ('35','Beneficiario'),&#xa;  ('65','Beneficiario per'),&#xa;  ('54','Beneficiario di dominio diretto'),&#xa;  ('46','Possessore'),&#xa;  ('47','Possessore per'),&#xa;  ('48','Compossessore'),&#xa;  ('49','Compossessore per'),&#xa;  ('55','Contestatario'),&#xa;  ('56','Contestatario per'),&#xa;  ('57','Contestatario per usufrutto'),&#xa;  ('99','Presenza di titolo non codificato'),&#xa;  ('990','Presenza di titolo non codificato'),&#xa;  ('0','Assenza di titolo');&#xa;" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE TABLE partite_speciali_fabbricati (&#xa;&#x9;pk_id INTEGER PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,&#xa;&#x9;codice TEXT,&#xa;&#x9;descrizione TEXT&#xa;);&#xa;&#xa;INSERT INTO partite_speciali_fabbricati (codice, descrizione) VALUES&#xa;  ('0', 'beni comuni censibili'),&#xa;  ('A', 'beni comuni non censibili'),&#xa;  ('R', 'fabbricati rurali'),&#xa;  ('C', 'unità immobiliari soppresse');&#xa;&#xa;CREATE TABLE categoria_catastale (&#xa;  pk_id integer NOT NULL GENERATED BY DEFAULT AS IDENTITY,&#xa;  codice TEXT,&#xa;  descrizione TEXT&#xa;);&#xa;&#xa;INSERT INTO categoria_catastale (codice, descrizione) VALUES&#xa;  ('A01','abitazioni di tipo signorile'),&#xa;  ('A02','abitazioni di tipo civile'),&#xa;  ('A03','abitazioni di tipo economico'),&#xa;  ('A04','abitazioni di tipo popolare'),&#xa;  ('A05','abitazioni di tipo ultapopolare'),&#xa;  ('A06','abitazioni di tipo rurale'),&#xa;  ('A07','abitazioni in villini'),&#xa;  ('A08','abitazioni in ville'),&#xa;  ('A09','castelli, palazzi di eminenti pregi artistici e storici'),&#xa;  ('A10','uffici e studi privati'),&#xa;  ('A11','abitazioni ed alloggi tipici dei luoghi'),&#xa;  ('B01','collegi, convitti; educandati, ricoveri orfanatrofi, ospizi, conventi, seminari, caserme'),&#xa;  ('B02','case di cura ed ospedali senza fini di lucro'),&#xa;  ('B03','prigioni e riformatori'),&#xa;  ('B04','uffici pubblici'),&#xa;  ('B05','scuole e laboratori scientifici'),&#xa;  ('B06','biblioteche, pinacoteche, musei, gallerie, accademie, circoli ricreativi e culturali senza fine di lucro, che non hanno sede in edifici della categoria A/9'),&#xa;  ('B07','cappelle ed oratori non destinati all’esercizio pubblico dei culti'),&#xa;  ('B08','magazzini sotterranei per deposito derrate'),&#xa;  ('C01','negozi e botteghe'),&#xa;  ('C02','magazzini e locali di deposito; cantine e soffitte se non unite all`unità immobiliare abitativa'),&#xa;  ('C03','laboratori per arti e mestieri'),&#xa;  ('C04','fabbricati e locali per esercizi sportivi'),&#xa;  ('C05','stabilimenti balneari e di acque curative'),&#xa;  ('C06','stalle, scuderie, rimesse ed autorimesse'),&#xa;  ('C07','tettoie; posti auto su aree private; posti auto coperti'),&#xa;  ('D01','opifici'),&#xa;  ('D02','alberghi e pensioni'),&#xa;  ('D03','teatri, cinematografi, sale per concerti e spettacoli; arene, parchi giochi, zoo-safari'),&#xa;  ('D04','case di cura e ospedali'),&#xa;  ('D05','istituti di credito, cambio ed assicurazione'),&#xa;  ('D06','fabbricati, locali, aree attrezzate per esercizi sportivi'),&#xa;  ('D07','fabbricati costruiti o adattati per le speciali esigenze di un`attivita` industriale e non suscettibile di destinazione diversa senza radicali trasformazioni'),&#xa;  ('D08','fabbricati costruiti o adattati per le speciali esigenze di un`attivita` commerciale e non suscettibili di destinazione diversa senza radicali trasformazioni'),&#xa;  ('D09','edifici galleggianti o assicurati a punti fissi del suolo; ponti privati soggetti a pedaggio; aree attrezzate per l’appoggio di palloni aerostatici e dirigibili'),&#xa;  ('D10','fabbricati per funzioni produttive connesse alle attività agricole'),&#xa;  ('E01','stazioni per servizi di trasporto terrestri, marittimi ed aerei; stazioni per metropolitane; stazioni per ferrovie; impianti di risalita in genere'),&#xa;  ('E02','ponti comunali e provinciali soggetti a pedaggio'),&#xa;  ('E03','costruzioni e fabbricati per speciali esigenze pubbliche'),&#xa;  ('E04','recinti chiusi per mercati, fiere, posteggio bestiame e simili'),&#xa;  ('E05','fabbricati costituenti fortificazioni e loro dipendenze'),&#xa;  ('E06','fari, semafori torri per rendere pubblico l’uso dell’orologio comunale'),&#xa;  ('E07','fabbricati per l’esercizio pubblico dei culti'),&#xa;  ('E08','fabbricati e costruzioni nei cimiteri esclusi i colombari, i sepolcri e le tombe di famiglia'),&#xa;  ('E09','edifici a destinazione particolare non compresi nelle categorie precedenti del gruppo E'),&#xa;  ('F01','area urbana'),&#xa;  ('F02','unità collabenti'),&#xa;  ('F03','unità in corso di costruzione'),&#xa;  ('F04','unità in corso di definizione'),&#xa;  ('F05','lastrico solare');&#xa;&#xa;CREATE TABLE codice_toponimo (&#xa;  pk_id INTEGER PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,&#xa;  codice INTEGER,&#xa;  denominazione TEXT&#xa;);&#xa;&#xa;INSERT INTO codice_toponimo (codice, denominazione) VALUES&#xa;  (0, ''),&#xa;  (54, 'Contrada'),&#xa;  (58, 'Corso'),&#xa;  (86, 'Largo'),&#xa;  (90, 'Località'),&#xa;  (130, 'Piazza'),&#xa;  (172, 'Salita'),&#xa;  (210, 'Strada'),&#xa;  (224, 'Traversa'),&#xa;  (236, 'Via'),&#xa;  (240, 'Viale'),&#xa;  (244, 'Vico'),&#xa;  (477, 'Prato'),&#xa;  (546, 'Strada comunale'),&#xa;  (566, 'Strada provinciale'),&#xa;  (661, 'Vico chiuso'),&#xa;  (843, 'Monte'),&#xa;  (894, 'Strada poderale');&#xa;&#xa;CREATE TABLE codici_diritto (&#xa;  pk_id INTEGER PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,&#xa;  codice TEXT,&#xa;  descrizione TEXT&#xa;);&#xa;&#xa;INSERT INTO codici_diritto (codice, descrizione) VALUES&#xa;  ('10','Proprietà'),&#xa;  ('1s','Proprietà  superficiaria'),&#xa;  ('1t','Proprietà  per l''area'),&#xa;  ('20','Nuda proprietà'),&#xa;  ('2s','Nuda proprietà  superficiaria'),&#xa;  ('30','Abitazione'),&#xa;  ('3','Comproprietario'),&#xa;  ('3s','Abitazione su proprietà  superficiaria'),&#xa;  ('40','Diritto del concedente'),&#xa;  ('4','Comproprietario per'),&#xa;  ('50','Enfiteusi'),&#xa;  ('60','Superficie'),&#xa;  ('70','Uso'),&#xa;  ('7','Comproprietario del fabbricato'),&#xa;  ('7s','Uso proprietà  superficiaria'),&#xa;  ('7s','Uso proprietà  superficiaria'),&#xa;  ('80','Usufrutto'),&#xa;  ('8a','Usufrutto con diritto di accrescimento'),&#xa;  ('8e','Usufrutto su enfiteusi'),&#xa;  ('8s','Usufrutto su proprietà  superficiaria'),&#xa;  ('8','Comproprietario per l''area'),&#xa;  ('90','Servità'),&#xa;  ('100','Oneri'),&#xa;  ('12','Concedente in parte'),&#xa;  ('14','Livellario parziale per'),&#xa;  ('15','Usufruttuario parziale per'),&#xa;  ('20','Livellario'),&#xa;  ('21','Livellario per'),&#xa;  ('22','Livellario in parte'),&#xa;  ('25','Enfiteuta in parte'),&#xa;  ('26','Colono perpetuo'),&#xa;  ('27','Colono perpetuo per'),&#xa;  ('28','Colono perpetuo in parte'),&#xa;  ('30','Usufruttuario parziale'),&#xa;  ('33','Cousufruttuario generale'),&#xa;  ('36','Usufruttuario generale di livello'),&#xa;  ('37','Usufruttuario parziale di livello'),&#xa;  ('39','Usufruttuario parziale di enfiteusi'),&#xa;  ('40','Usufruttuario generale di colonia'),&#xa;  ('41','Usufruttuario parziale di colonia'),&#xa;  ('42','Usufruttuario generale di dominio diretto'),&#xa;  ('43','Usufruttuario parziale di dominio diretto'),&#xa;  ('50','Cousufruttuario per'),&#xa;  ('52','Usuario perpetuo'),&#xa;  ('53','Usuario a tempo determinato'),&#xa;  ('60','Cousufruttuario di livello'),&#xa;  ('61','Cousufruttuario generale di livello'),&#xa;  ('62','Usufruttuario di livello di'),&#xa;  ('64','Comproprietario per parte di'),&#xa;  ('70','Usufruttuario di colonia per'),&#xa;  ('71','Usufruttuario di dominio diretto per'),&#xa;  ('72','Cousufruttuario generale con diritto di'),&#xa;  ('16','Utilista della superficie'),&#xa;  ('17','Utilista della superficie per'),&#xa;  ('35','Beneficiario'),&#xa;  ('65','Beneficiario per'),&#xa;  ('54','Beneficiario di dominio diretto'),&#xa;  ('46','Possessore'),&#xa;  ('47','Possessore per'),&#xa;  ('48','Compossessore'),&#xa;  ('49','Compossessore per'),&#xa;  ('55','Contestatario'),&#xa;  ('56','Contestatario per'),&#xa;  ('57','Contestatario per usufrutto'),&#xa;  ('99','Presenza di titolo non codificato'),&#xa;  ('990','Presenza di titolo non codificato'),&#xa;  ('0','Assenza di titolo');&#xa;" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="native:postgisexecutesql_3">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="native:postgisexecutesql_3" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="native:postgisexecutesql" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="851" type="double" name="component_pos_x"/>
-        <Option value="349" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="native:postgisexecutesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="851" name="component_pos_x" type="double"/>
+        <Option value="349" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Creazione delle viste fab" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="651" type="double" name="component_pos_x"/>
-      <Option value="394" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Creazione delle viste fab" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="466" name="component_pos_x" type="double"/>
+      <Option value="530" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="native:postgisexecutesql_1" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_1" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
         <Option type="Map">
-          <Option value="native:postgisexecutesql_2" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_2" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
         <Option type="Map">
-          <Option value="qgis:importintopostgis_1" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="qgis:importintopostgis_1" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="native:postgisexecutesql_3" type="QString" name="id"/>
+      <Option value="native:postgisexecutesql_3" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="DATABASE">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="SQL">
+        <Option name="SQL" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="SET search_path to catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW fab1 AS SELECT * from fab WHERE field_6 = '1';&#xa;CREATE OR REPLACE VIEW fab2 AS SELECT * from fab WHERE field_6 = '2';&#xa;CREATE OR REPLACE VIEW fab3 AS SELECT * from fab WHERE field_6 = '3';&#xa;CREATE OR REPLACE VIEW fab4 AS SELECT * from fab WHERE field_6 = '4';&#xa;CREATE OR REPLACE VIEW fab5 AS SELECT * from fab WHERE field_6 = '5';" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="SET search_path to catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW fab1 AS SELECT * from fab WHERE field_6 = '1';&#xa;CREATE OR REPLACE VIEW fab2 AS SELECT * from fab WHERE field_6 = '2';&#xa;CREATE OR REPLACE VIEW fab3 AS SELECT * from fab WHERE field_6 = '3';&#xa;CREATE OR REPLACE VIEW fab4 AS SELECT * from fab WHERE field_6 = '4';&#xa;CREATE OR REPLACE VIEW fab5 AS SELECT * from fab WHERE field_6 = '5';" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="native:postgisexecutesql_4">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="native:postgisexecutesql_4" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="native:postgisexecutesql" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1071" type="double" name="component_pos_x"/>
-        <Option value="449" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="native:postgisexecutesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1071" name="component_pos_x" type="double"/>
+        <Option value="449" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Elaborazioni dei tipi di record fab" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="461" type="double" name="component_pos_x"/>
-      <Option value="463" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Elaborazioni dei tipi di record fab" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="162" name="component_pos_x" type="double"/>
+      <Option value="505" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="native:postgisexecutesql_1" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_1" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
         <Option type="Map">
-          <Option value="native:postgisexecutesql_2" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_2" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
         <Option type="Map">
-          <Option value="native:postgisexecutesql_3" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_3" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
         <Option type="Map">
-          <Option value="qgis:importintopostgis_1" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="qgis:importintopostgis_1" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="native:postgisexecutesql_4" type="QString" name="id"/>
+      <Option value="native:postgisexecutesql_4" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="DATABASE">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="SQL">
+        <Option name="SQL" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW fab1_colnames AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_immobile,&#xa;  field_4 AS tipo_immboile,&#xa;  field_5 AS progressivo,&#xa;  field_6 AS tipo_record,&#xa;  field_7 AS zona,&#xa;  field_8 AS categoria,&#xa;  c.descrizione AS descrizione_categoria,&#xa;  field_9 AS classe,&#xa;  field_10 AS consistenza,&#xa;  CASE&#xa;    WHEN field_8 LIKE 'A%' THEN 'vani'&#xa;    WHEN field_8 LIKE 'B%' THEN 'metri cubi'&#xa;    WHEN field_8 LIKE 'C%' THEN 'metri quadri'&#xa;  END AS unita_misura_consistenza,&#xa;  field_11 AS superficie,&#xa;  field_12 AS rendita_lire,&#xa;  field_13 AS rendita_euro,&#xa;  field_14 AS lotto,&#xa;  field_15 AS edificio,&#xa;  field_16 AS scala,&#xa;  field_17 AS interno_1,&#xa;  field_18 AS interno_2,&#xa;  CASE&#xa;    WHEN field_17 IS NOT NULL THEN concat ('Int. ', CONCAT_WS('-', NULLIF(trim(REGEXP_REPLACE(fab1.field_17, '^0+', '')), ''), NULLIF(trim(REGEXP_REPLACE(fab1.field_18, '^0+', '')), '')))&#xa;  END AS interno_concat,&#xa;  field_19 AS piano_1,&#xa;  field_20 AS piano_2,&#xa;  field_21 AS piano_3,&#xa;  field_22 AS piano_4,&#xa;  CASE&#xa;    WHEN field_19 IS NOT NULL THEN concat ('Piano ', CONCAT_WS('--', NULLIF(trim(REGEXP_REPLACE(fab1.field_19, '^0+', '')), ''), NULLIF(trim(REGEXP_REPLACE(fab1.field_20, '^0+', '')),''),  NULLIF(trim(REGEXP_REPLACE(fab1.field_21, '^0+', '')), ''), NULLIF(trim(REGEXP_REPLACE(fab1.field_22, '^0+', '')), '')))&#xa;  END AS piano_concat,&#xa;  field_35 AS partita&#xa;FROM fab1&#xa;LEFT JOIN categoria_catastale c ON fab1.field_8 = c.codice;&#xa;CREATE OR REPLACE VIEW fab2_colnames AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_immobile,&#xa;  field_4 AS tipo_immboile,&#xa;  field_5 AS progressivo,&#xa;  field_6 AS tipo_record,&#xa;  field_7 AS sezione_urbana,&#xa;  field_8 AS foglio,&#xa;  field_9 AS numero,&#xa;  field_10 AS denominatore,&#xa;  field_11 AS subalterno,&#xa;  field_12 AS edificialita,&#xa;  CASE&#xa;    WHEN field_14 IS NOT NULL THEN 'si' ELSE 'no'&#xa;  END AS immobili_graffati&#xa;FROM fab2;&#xa;CREATE OR REPLACE VIEW fab3_colnames AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_immobile,&#xa;  field_4 AS tipo_immboile,&#xa;  field_5 AS progressivo,&#xa;  field_6 AS tipo_record,&#xa;  field_7 AS toponimo,&#xa;  field_8 AS indirizzo,&#xa;  field_9 AS civico_1,&#xa;  field_10 AS civico_2,&#xa;  field_11 AS civico_3,&#xa;  field_12 AS codice_strada,&#xa;  field_13 AS toponimo_a,&#xa;  field_14 AS indirizzo_a,&#xa;  field_15 AS civico_1_a,&#xa;  field_16 AS civico_2_a,&#xa;  field_17 AS civico_3_a,&#xa;  field_18 AS codice_strada_a,&#xa;  field_19 AS toponimo_b,&#xa;  field_20 AS indirizzo_b,&#xa;  field_21 AS civico_1_b,&#xa;  field_22 AS civico_2_b,&#xa;  field_23 AS civico_3_b,&#xa;  field_24 AS codice_strada_b,&#xa;  field_25 AS toponimo_c,&#xa;  field_26 AS indirizzo_c,&#xa;  field_27 AS civico_1_c,&#xa;  field_28 AS civico_2_c,&#xa;  field_29 AS civico_3_c,&#xa;  field_30 AS codice_strada_c,&#xa;  CASE&#xa;    WHEN field_11 IS NULL AND field_10 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_9, '^0+', '')), ''))&#xa;    WHEN field_11 IS NULL AND field_10 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_9, '^0+', '')), ''))&#xa;    WHEN field_11 IS NOT NULL AND field_10 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_10, '^0+', '')), ''))&#xa;  END AS indirizzo_completo,&#xa;  CASE&#xa;    WHEN field_17 IS NULL AND field_16 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_15, '^0+', '')), ''))&#xa;    WHEN field_17 IS NULL AND field_16 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_15, '^0+', '')), ''))&#xa;    WHEN field_17 IS NOT NULL AND field_16 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_16, '^0+', '')),''))&#xa;  END AS indirizzo_completo_a,&#xa;  CASE&#xa;    WHEN field_23 IS NULL AND field_22 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_21, '^0+', '')),''))&#xa;    WHEN field_23 IS NULL AND field_22 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_21, '^0+', '')),''))&#xa;    WHEN field_23 IS NOT NULL AND field_22 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_22, '^0+', '')),''))&#xa;  END AS indirizzo_completo_b,&#xa;  CASE&#xa;    WHEN field_29 IS NULL AND field_28 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_27, '^0+', '')),''))&#xa;    WHEN field_29 IS NULL AND field_28 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_27, '^0+', '')),''))&#xa;    WHEN field_29 IS NOT NULL AND field_28 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_28, '^0+', '')),''))&#xa;  END AS indirizzo_completo_c&#xa;FROM fab3&#xa;LEFT JOIN codice_toponimo t ON CAST(fab3.field_7 AS INTEGER) = t.codice&#xa;LEFT JOIN codice_toponimo a ON CAST(fab3.field_13 AS INTEGER) = a.codice&#xa;LEFT JOIN codice_toponimo b ON CAST(fab3.field_19 AS INTEGER) = b.codice&#xa;LEFT JOIN codice_toponimo c ON CAST(fab3.field_25 AS INTEGER) = c.codice;&#xa;CREATE OR REPLACE VIEW fab4_colnames AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_immobile,&#xa;  field_4 AS tipo_immboile,&#xa;  field_5 AS progressivo,&#xa;  field_6 AS tipo_record,&#xa;  field_7 AS sezione_urbana,&#xa;  field_8 AS foglio,&#xa;  field_9 AS numero,&#xa;  field_10 AS denominatore,&#xa;  field_11 AS subalterno&#xa;FROM fab4;&#xa;CREATE OR REPLACE VIEW fab1_2_3_4_5 AS&#xa;SELECT&#xa;  fab1.codice_amministrativo,&#xa;  fab1.sezione,&#xa;  fab1.identificativo_immobile,&#xa;  fab1.progressivo,&#xa;  fab1.tipo_record,&#xa;  fab1.zona,&#xa;  fab1.categoria,&#xa;  fab1.descrizione_categoria,&#xa;  fab1.classe,&#xa;  fab1.consistenza,&#xa;  fab1.unita_misura_consistenza,&#xa;  fab1.superficie,&#xa;  fab1.rendita_lire,&#xa;  fab1.rendita_euro,&#xa;  fab1.lotto,&#xa;  fab1.edificio,&#xa;  fab1.scala,&#xa;  fab1.interno_1,&#xa;  fab1.interno_2,&#xa;  fab1.interno_concat,&#xa;  fab1.piano_1,&#xa;  fab1.piano_2,&#xa;  fab1.piano_3,&#xa;  fab1.piano_4,&#xa;  fab1.piano_concat,&#xa;  CONCAT_WS ('-', NULLIF(trim(fab1.partita), ''), NULLIF(trim(psf.descrizione), '')) AS partita,&#xa;  fab2.foglio,&#xa;  fab2.numero,&#xa;  fab2.denominatore,&#xa;  fab2.subalterno,&#xa;  fab2.edificialita,&#xa;  fab2.immobili_graffati,&#xa;  CASE&#xa;    WHEN fab3.indirizzo_completo IS NOT NULL AND fab3.indirizzo_completo_a = '' AND fab3.indirizzo_completo_b = '' AND indirizzo_completo_c = '' THEN indirizzo_completo&#xa;    WHEN fab3.indirizzo_completo_a IS NOT NULL AND fab3.indirizzo_completo_b = '' AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_a&#xa;    WHEN fab3.indirizzo_completo_b IS NOT NULL AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_b&#xa;    WHEN fab3.indirizzo_completo_c IS NOT NULL THEN fab3.indirizzo_completo_c&#xa;  END AS indirizzo_completo,&#xa;  CASE&#xa;    WHEN fab4.identificativo_immobile = fab1.identificativo_immobile THEN 'utilità comuni dell''unità immobiliare'&#xa;  END AS utilita_comuni,&#xa;  CASE&#xa;    WHEN fab5.field_3 = fab1.identificativo_immobile THEN 'riserva dell''unità immobiliare'&#xa;  END AS riserva&#xa;FROM fab1_colnames fab1&#xa;LEFT JOIN fab2_colnames fab2 ON fab1.identificativo_immobile = fab2.identificativo_immobile&#xa;LEFT JOIN fab3_colnames fab3 ON fab1.identificativo_immobile = fab3.identificativo_immobile&#xa;LEFT JOIN fab4_colnames fab4 ON fab1.identificativo_immobile = fab4.identificativo_immobile&#xa;LEFT JOIN fab5 fab5 ON fab1.identificativo_immobile = fab5.field_3&#xa;LEFT JOIN partite_speciali_fabbricati psf ON fab1.partita = psf.codice;" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW fab1_colnames AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_immobile,&#xa;  field_4 AS tipo_immboile,&#xa;  field_5 AS progressivo,&#xa;  field_6 AS tipo_record,&#xa;  field_7 AS zona,&#xa;  field_8 AS categoria,&#xa;  c.descrizione AS descrizione_categoria,&#xa;  field_9 AS classe,&#xa;  field_10 AS consistenza,&#xa;  CASE&#xa;    WHEN field_8 LIKE 'A%' THEN 'vani'&#xa;    WHEN field_8 LIKE 'B%' THEN 'metri cubi'&#xa;    WHEN field_8 LIKE 'C%' THEN 'metri quadri'&#xa;  END AS unita_misura_consistenza,&#xa;  field_11 AS superficie,&#xa;  field_12 AS rendita_lire,&#xa;  field_13 AS rendita_euro,&#xa;  field_14 AS lotto,&#xa;  field_15 AS edificio,&#xa;  field_16 AS scala,&#xa;  field_17 AS interno_1,&#xa;  field_18 AS interno_2,&#xa;  CASE&#xa;    WHEN field_17 IS NOT NULL THEN concat ('Int. ', CONCAT_WS('-', NULLIF(trim(REGEXP_REPLACE(fab1.field_17, '^0+', '')), ''), NULLIF(trim(REGEXP_REPLACE(fab1.field_18, '^0+', '')), '')))&#xa;  END AS interno_concat,&#xa;  field_19 AS piano_1,&#xa;  field_20 AS piano_2,&#xa;  field_21 AS piano_3,&#xa;  field_22 AS piano_4,&#xa;  CASE&#xa;    WHEN field_19 IS NOT NULL THEN concat ('Piano ', CONCAT_WS('--', NULLIF(trim(REGEXP_REPLACE(fab1.field_19, '^0+', '')), ''), NULLIF(trim(REGEXP_REPLACE(fab1.field_20, '^0+', '')),''),  NULLIF(trim(REGEXP_REPLACE(fab1.field_21, '^0+', '')), ''), NULLIF(trim(REGEXP_REPLACE(fab1.field_22, '^0+', '')), '')))&#xa;  END AS piano_concat,&#xa;  field_35 AS partita&#xa;FROM fab1&#xa;LEFT JOIN categoria_catastale c ON fab1.field_8 = c.codice;&#xa;CREATE OR REPLACE VIEW fab2_colnames AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_immobile,&#xa;  field_4 AS tipo_immboile,&#xa;  field_5 AS progressivo,&#xa;  field_6 AS tipo_record,&#xa;  field_7 AS sezione_urbana,&#xa;  field_8 AS foglio,&#xa;  field_9 AS numero,&#xa;  field_10 AS denominatore,&#xa;  field_11 AS subalterno,&#xa;  field_12 AS edificialita,&#xa;  CASE&#xa;    WHEN field_14 IS NOT NULL THEN 'si' ELSE 'no'&#xa;  END AS immobili_graffati&#xa;FROM fab2;&#xa;CREATE OR REPLACE VIEW fab3_colnames AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_immobile,&#xa;  field_4 AS tipo_immboile,&#xa;  field_5 AS progressivo,&#xa;  field_6 AS tipo_record,&#xa;  field_7 AS toponimo,&#xa;  field_8 AS indirizzo,&#xa;  field_9 AS civico_1,&#xa;  field_10 AS civico_2,&#xa;  field_11 AS civico_3,&#xa;  field_12 AS codice_strada,&#xa;  field_13 AS toponimo_a,&#xa;  field_14 AS indirizzo_a,&#xa;  field_15 AS civico_1_a,&#xa;  field_16 AS civico_2_a,&#xa;  field_17 AS civico_3_a,&#xa;  field_18 AS codice_strada_a,&#xa;  field_19 AS toponimo_b,&#xa;  field_20 AS indirizzo_b,&#xa;  field_21 AS civico_1_b,&#xa;  field_22 AS civico_2_b,&#xa;  field_23 AS civico_3_b,&#xa;  field_24 AS codice_strada_b,&#xa;  field_25 AS toponimo_c,&#xa;  field_26 AS indirizzo_c,&#xa;  field_27 AS civico_1_c,&#xa;  field_28 AS civico_2_c,&#xa;  field_29 AS civico_3_c,&#xa;  field_30 AS codice_strada_c,&#xa;  CASE&#xa;    WHEN field_11 IS NULL AND field_10 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_9, '^0+', '')), ''))&#xa;    WHEN field_11 IS NULL AND field_10 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_9, '^0+', '')), ''))&#xa;    WHEN field_11 IS NOT NULL AND field_10 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(t.denominazione), ''), NULLIF(trim(field_8), ''), NULLIF(trim(REGEXP_REPLACE(field_10, '^0+', '')), ''))&#xa;  END AS indirizzo_completo,&#xa;  CASE&#xa;    WHEN field_17 IS NULL AND field_16 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_15, '^0+', '')), ''))&#xa;    WHEN field_17 IS NULL AND field_16 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_15, '^0+', '')), ''))&#xa;    WHEN field_17 IS NOT NULL AND field_16 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(a.denominazione), ''), NULLIF(trim(field_14), ''), NULLIF(trim(REGEXP_REPLACE(field_16, '^0+', '')),''))&#xa;  END AS indirizzo_completo_a,&#xa;  CASE&#xa;    WHEN field_23 IS NULL AND field_22 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_21, '^0+', '')),''))&#xa;    WHEN field_23 IS NULL AND field_22 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_21, '^0+', '')),''))&#xa;    WHEN field_23 IS NOT NULL AND field_22 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(b.denominazione), ''), NULLIF(trim(field_20), ''), NULLIF(trim(REGEXP_REPLACE(field_22, '^0+', '')),''))&#xa;  END AS indirizzo_completo_b,&#xa;  CASE&#xa;    WHEN field_29 IS NULL AND field_28 IS NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_27, '^0+', '')),''))&#xa;    WHEN field_29 IS NULL AND field_28 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_27, '^0+', '')),''))&#xa;    WHEN field_29 IS NOT NULL AND field_28 IS NOT NULL THEN CONCAT_WS (' ', NULLIF(trim(c.denominazione), ''), NULLIF(trim(field_26), ''), NULLIF(trim(REGEXP_REPLACE(field_28, '^0+', '')),''))&#xa;  END AS indirizzo_completo_c&#xa;FROM fab3&#xa;LEFT JOIN codice_toponimo t ON CAST(fab3.field_7 AS INTEGER) = t.codice&#xa;LEFT JOIN codice_toponimo a ON CAST(fab3.field_13 AS INTEGER) = a.codice&#xa;LEFT JOIN codice_toponimo b ON CAST(fab3.field_19 AS INTEGER) = b.codice&#xa;LEFT JOIN codice_toponimo c ON CAST(fab3.field_25 AS INTEGER) = c.codice;&#xa;CREATE OR REPLACE VIEW fab4_colnames AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_immobile,&#xa;  field_4 AS tipo_immboile,&#xa;  field_5 AS progressivo,&#xa;  field_6 AS tipo_record,&#xa;  field_7 AS sezione_urbana,&#xa;  field_8 AS foglio,&#xa;  field_9 AS numero,&#xa;  field_10 AS denominatore,&#xa;  field_11 AS subalterno&#xa;FROM fab4;&#xa;CREATE OR REPLACE VIEW fab1_2_3_4_5 AS&#xa;SELECT&#xa;  fab1.codice_amministrativo,&#xa;  fab1.sezione,&#xa;  fab1.identificativo_immobile,&#xa;  fab1.progressivo,&#xa;  fab1.tipo_record,&#xa;  fab1.zona,&#xa;  fab1.categoria,&#xa;  fab1.descrizione_categoria,&#xa;  fab1.classe,&#xa;  fab1.consistenza,&#xa;  fab1.unita_misura_consistenza,&#xa;  fab1.superficie,&#xa;  fab1.rendita_lire,&#xa;  fab1.rendita_euro,&#xa;  fab1.lotto,&#xa;  fab1.edificio,&#xa;  fab1.scala,&#xa;  fab1.interno_1,&#xa;  fab1.interno_2,&#xa;  fab1.interno_concat,&#xa;  fab1.piano_1,&#xa;  fab1.piano_2,&#xa;  fab1.piano_3,&#xa;  fab1.piano_4,&#xa;  fab1.piano_concat,&#xa;  CONCAT_WS ('-', NULLIF(trim(fab1.partita), ''), NULLIF(trim(psf.descrizione), '')) AS partita,&#xa;  fab2.foglio,&#xa;  fab2.numero,&#xa;  fab2.denominatore,&#xa;  fab2.subalterno,&#xa;  fab2.edificialita,&#xa;  fab2.immobili_graffati,&#xa;  CASE&#xa;    WHEN fab3.indirizzo_completo IS NOT NULL AND fab3.indirizzo_completo_a = '' AND fab3.indirizzo_completo_b = '' AND indirizzo_completo_c = '' THEN indirizzo_completo&#xa;    WHEN fab3.indirizzo_completo_a IS NOT NULL AND fab3.indirizzo_completo_b = '' AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_a&#xa;    WHEN fab3.indirizzo_completo_b IS NOT NULL AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_b&#xa;    WHEN fab3.indirizzo_completo_c IS NOT NULL THEN fab3.indirizzo_completo_c&#xa;  END AS indirizzo_completo,&#xa;  CASE&#xa;    WHEN fab4.identificativo_immobile = fab1.identificativo_immobile THEN 'utilità comuni dell''unità immobiliare'&#xa;  END AS utilita_comuni,&#xa;  CASE&#xa;    WHEN fab5.field_3 = fab1.identificativo_immobile THEN 'riserva dell''unità immobiliare'&#xa;  END AS riserva&#xa;FROM fab1_colnames fab1&#xa;LEFT JOIN fab2_colnames fab2 ON fab1.identificativo_immobile = fab2.identificativo_immobile&#xa;LEFT JOIN fab3_colnames fab3 ON fab1.identificativo_immobile = fab3.identificativo_immobile&#xa;LEFT JOIN fab4_colnames fab4 ON fab1.identificativo_immobile = fab4.identificativo_immobile&#xa;LEFT JOIN fab5 fab5 ON fab1.identificativo_immobile = fab5.field_3&#xa;LEFT JOIN partite_speciali_fabbricati psf ON fab1.partita = psf.codice;" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="native:postgisexecutesql_5">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="native:postgisexecutesql_5" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="native:postgisexecutesql" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1148" type="double" name="component_pos_x"/>
-        <Option value="556" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="native:postgisexecutesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1148" name="component_pos_x" type="double"/>
+        <Option value="556" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Elaborazione delle titolarità" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="406" type="double" name="component_pos_x"/>
-      <Option value="606" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Elaborazione delle titolarità" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="378" name="component_pos_x" type="double"/>
+      <Option value="788" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="qgis:importintopostgis_3" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="qgis:importintopostgis_3" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="native:postgisexecutesql_5" type="QString" name="id"/>
+      <Option value="native:postgisexecutesql_5" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="DATABASE">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="SQL">
+        <Option name="SQL" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW tit_colnames AS SELECT DISTINCT ON (field_28)&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_soggetto,&#xa;  field_4 AS tipo_soggetto,&#xa;  field_5 AS identificativo_immobile,&#xa;  field_6 AS tipo_immobile,&#xa;  REGEXP_REPLACE(field_7, '\s', '', 'g') AS codici_diritto,&#xa;  field_8 AS titolo_non_codificato,&#xa;  field_9 AS quota_numeratore_possesso,&#xa;  field_10 AS quota_denominatore_possesso,&#xa;  field_11 AS regime,&#xa;  field_12 AS soggetto_riferimento,&#xa;  field_13 AS data_validita_atto_generato,&#xa;  field_14 AS tipo_nota_generato,&#xa;  field_15 AS numero_nota_generato,&#xa;  field_16 AS progressivo_nota_generato,&#xa;  field_17 AS anno_nota_generato,&#xa;  field_18 AS data_registrazione_atti_generato,&#xa;  field_19 AS partita,&#xa;  field_20 AS data_validita_atto_concluso,&#xa;  field_21 AS tipo_nota_concluso,&#xa;  field_22 AS numero_nota_concluso,&#xa;  field_23 AS progessivo_nota_concluso,&#xa;  field_24 AS anno_nota_concluso,&#xa;  field_25 AS data_registrazione_atti_concluso,&#xa;  field_26 AS identificativo_mutazione_iniziale,&#xa;  field_27 AS identificativo_mutazione_finale,&#xa;  field_28 AS identificativo_titolarita,&#xa;  field_29 AS codice_causale_atto_generante,&#xa;  field_30 AS descrizione_atto_generante,&#xa;  d.descrizione AS descrizione_diritto&#xa;FROM tit&#xa;LEFT JOIN catasto_fabbricati.codici_diritto d ON REGEXP_REPLACE(tit.field_7, '\s', '', 'g') = d.codice;&#xa;&#xa;CREATE OR REPLACE VIEW titp AS&#xa;SELECT *&#xa;FROM tit_colnames&#xa;WHERE tipo_soggetto = 'P';&#xa;&#xa;CREATE OR REPLACE VIEW titg AS&#xa;SELECT *&#xa;FROM tit_colnames&#xa;WHERE tipo_soggetto = 'G';" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW tit_colnames AS SELECT DISTINCT ON (field_28)&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_soggetto,&#xa;  field_4 AS tipo_soggetto,&#xa;  field_5 AS identificativo_immobile,&#xa;  field_6 AS tipo_immobile,&#xa;  REGEXP_REPLACE(field_7, '\s', '', 'g') AS codici_diritto,&#xa;  field_8 AS titolo_non_codificato,&#xa;  field_9 AS quota_numeratore_possesso,&#xa;  field_10 AS quota_denominatore_possesso,&#xa;  field_11 AS regime,&#xa;  field_12 AS soggetto_riferimento,&#xa;  field_13 AS data_validita_atto_generato,&#xa;  field_14 AS tipo_nota_generato,&#xa;  field_15 AS numero_nota_generato,&#xa;  field_16 AS progressivo_nota_generato,&#xa;  field_17 AS anno_nota_generato,&#xa;  field_18 AS data_registrazione_atti_generato,&#xa;  field_19 AS partita,&#xa;  field_20 AS data_validita_atto_concluso,&#xa;  field_21 AS tipo_nota_concluso,&#xa;  field_22 AS numero_nota_concluso,&#xa;  field_23 AS progessivo_nota_concluso,&#xa;  field_24 AS anno_nota_concluso,&#xa;  field_25 AS data_registrazione_atti_concluso,&#xa;  field_26 AS identificativo_mutazione_iniziale,&#xa;  field_27 AS identificativo_mutazione_finale,&#xa;  field_28 AS identificativo_titolarita,&#xa;  field_29 AS codice_causale_atto_generante,&#xa;  field_30 AS descrizione_atto_generante,&#xa;  d.descrizione AS descrizione_diritto&#xa;FROM tit&#xa;LEFT JOIN catasto_fabbricati.codici_diritto d ON REGEXP_REPLACE(tit.field_7, '\s', '', 'g') = d.codice;&#xa;&#xa;CREATE OR REPLACE VIEW titp AS&#xa;SELECT *&#xa;FROM tit_colnames&#xa;WHERE tipo_soggetto = 'P';&#xa;&#xa;CREATE OR REPLACE VIEW titg AS&#xa;SELECT *&#xa;FROM tit_colnames&#xa;WHERE tipo_soggetto = 'G';" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="native:postgisexecutesql_6">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="native:postgisexecutesql_6" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="native:postgisexecutesql" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1487" type="double" name="component_pos_x"/>
-        <Option value="687" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="native:postgisexecutesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1487" name="component_pos_x" type="double"/>
+        <Option value="687" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Elaborazione dei soggetti" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="1011" type="double" name="component_pos_x"/>
-      <Option value="613" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Elaborazione dei soggetti" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="1011" name="component_pos_x" type="double"/>
+      <Option value="613" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="qgis:importintopostgis_2" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="qgis:importintopostgis_2" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="native:postgisexecutesql_6" type="QString" name="id"/>
+      <Option value="native:postgisexecutesql_6" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="DATABASE">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="SQL">
+        <Option name="SQL" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW sogp AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_soggetto,&#xa;  field_4 AS tipo_soggetto,&#xa;  field_5 AS cognome,&#xa;  field_6 AS nome,&#xa;  field_7 AS sesso,&#xa;  field_8 AS data_nascita,&#xa;  field_9 AS codice_amministratvio_comune_nascita,&#xa;  field_10 AS codice_fiscale,&#xa;  field_11 AS indicazioni_supplementari&#xa;FROM sog&#xa;WHERE field_4 = 'P';&#xa;&#xa;CREATE OR REPLACE VIEW sogg AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_soggetto,&#xa;  field_4 AS tipo_soggetto,&#xa;  field_5 AS denominazione,&#xa;  field_6 AS codice_amministrativo_sede,&#xa;  field_7 AS codice_fiscale&#xa;FROM sog&#xa;WHERE field_4 = 'G';" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW sogp AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_soggetto,&#xa;  field_4 AS tipo_soggetto,&#xa;  field_5 AS cognome,&#xa;  field_6 AS nome,&#xa;  field_7 AS sesso,&#xa;  field_8 AS data_nascita,&#xa;  field_9 AS codice_amministratvio_comune_nascita,&#xa;  field_10 AS codice_fiscale,&#xa;  field_11 AS indicazioni_supplementari&#xa;FROM sog&#xa;WHERE field_4 = 'P';&#xa;&#xa;CREATE OR REPLACE VIEW sogg AS&#xa;SELECT&#xa;  field_1 AS codice_amministrativo,&#xa;  field_2 AS sezione,&#xa;  field_3 AS identificativo_soggetto,&#xa;  field_4 AS tipo_soggetto,&#xa;  field_5 AS denominazione,&#xa;  field_6 AS codice_amministrativo_sede,&#xa;  field_7 AS codice_fiscale&#xa;FROM sog&#xa;WHERE field_4 = 'G';" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="native:postgisexecutesql_7">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="native:postgisexecutesql_7" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="native:postgisexecutesql" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1487" type="double" name="component_pos_x"/>
-        <Option value="668" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="native:postgisexecutesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1487" name="component_pos_x" type="double"/>
+        <Option value="668" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Join titolarità-soggetti" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="1287" type="double" name="component_pos_x"/>
-      <Option value="713" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Join titolarità-soggetti" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="1287" name="component_pos_x" type="double"/>
+      <Option value="713" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="native:postgisexecutesql_5" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_5" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
         <Option type="Map">
-          <Option value="native:postgisexecutesql_6" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_6" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="native:postgisexecutesql_7" type="QString" name="id"/>
+      <Option value="native:postgisexecutesql_7" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="DATABASE">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="SQL">
+        <Option name="SQL" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW titp_sogp AS&#xa;SELECT&#xa;  t.identificativo_immobile,&#xa;  t.tipo_immobile,&#xa;  t.identificativo_soggetto AS identificativo_soggetto_tit,&#xa;  t.identificativo_titolarita,&#xa;  t.descrizione_diritto AS diritto,&#xa;  CONCAT(t.quota_numeratore_possesso, '/', t.quota_denominatore_possesso) AS quota,&#xa;  p.identificativo_soggetto AS identificativo_soggetto_sogp,&#xa;  p.cognome,&#xa;  p.nome,&#xa;  p.data_nascita,&#xa;  p.codice_fiscale&#xa;FROM titp t&#xa;LEFT JOIN sogp p ON t.identificativo_soggetto = p.identificativo_soggetto;&#xa;&#xa;CREATE OR REPLACE VIEW titg_sogg AS&#xa;SELECT&#xa;  t.identificativo_immobile,&#xa;  t.tipo_immobile,&#xa;  t.identificativo_soggetto identificativo_soggetto_tit,&#xa;  t.identificativo_titolarita,&#xa;  t.descrizione_diritto AS diritto,&#xa;  CONCAT(t.quota_numeratore_possesso, '/', t.quota_denominatore_possesso) AS quota,&#xa;  g.identificativo_soggetto AS identificativo_soggetto_sogg,&#xa;  g.denominazione,&#xa;  g.codice_amministrativo_sede,&#xa;  g.codice_fiscale&#xa;FROM titg t&#xa;LEFT JOIN sogg g ON t.identificativo_soggetto = g.identificativo_soggetto;&#xa;&#xa;CREATE OR REPLACE VIEW tit_sogp_sogg AS&#xa;SELECT&#xa;  g.identificativo_immobile AS identificativo_immobile,&#xa;  g.tipo_immobile AS tipo_immobile,&#xa;  'soggetto giuridico' AS tipo_soggetto,&#xa;  g.diritto AS diritto,&#xa;  g.quota AS quota,&#xa;  g.identificativo_soggetto_tit AS identificativo_soggetto_tit,&#xa;  g.identificativo_soggetto_sogg AS identificativo_soggetto,&#xa;  g.denominazione AS denominazione,&#xa;  g.codice_amministrativo_sede AS codice_amministrativo_sede,&#xa;  NULL AS data_nascita,&#xa;  g.codice_fiscale AS codice_fiscale&#xa;  FROM catasto_fabbricati.titg_sogg g&#xa;UNION ALL&#xa;SELECT&#xa;  p.identificativo_immobile AS identificativo_immobile,&#xa;  p.tipo_immobile AS tipo_immobile,&#xa;  'persona fisica' AS tipo_soggetto,&#xa;  p.diritto AS diritto,&#xa;  p.quota AS quota,&#xa;  p.identificativo_soggetto_tit AS identificativo_soggetto_tit,&#xa;  p.identificativo_soggetto_sogp AS identificativo_soggetto,&#xa;  concat(p.cognome, ' ', p.nome) AS denominazione,&#xa;  NULL AS codice_amministrativo_sede,&#xa;  p.data_nascita AS data_nascita,&#xa;  p.codice_fiscale AS codice_fiscale&#xa;FROM catasto_fabbricati.titp_sogp p;&#xa;&#xa;" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW titp_sogp AS&#xa;SELECT&#xa;  t.identificativo_immobile,&#xa;  t.tipo_immobile,&#xa;  t.identificativo_soggetto AS identificativo_soggetto_tit,&#xa;  t.identificativo_titolarita,&#xa;  t.descrizione_diritto AS diritto,&#xa;  CONCAT(t.quota_numeratore_possesso, '/', t.quota_denominatore_possesso) AS quota,&#xa;  p.identificativo_soggetto AS identificativo_soggetto_sogp,&#xa;  p.cognome,&#xa;  p.nome,&#xa;  p.data_nascita,&#xa;  p.codice_fiscale&#xa;FROM titp t&#xa;LEFT JOIN sogp p ON t.identificativo_soggetto = p.identificativo_soggetto;&#xa;&#xa;CREATE OR REPLACE VIEW titg_sogg AS&#xa;SELECT&#xa;  t.identificativo_immobile,&#xa;  t.tipo_immobile,&#xa;  t.identificativo_soggetto identificativo_soggetto_tit,&#xa;  t.identificativo_titolarita,&#xa;  t.descrizione_diritto AS diritto,&#xa;  CONCAT(t.quota_numeratore_possesso, '/', t.quota_denominatore_possesso) AS quota,&#xa;  g.identificativo_soggetto AS identificativo_soggetto_sogg,&#xa;  g.denominazione,&#xa;  g.codice_amministrativo_sede,&#xa;  g.codice_fiscale&#xa;FROM titg t&#xa;LEFT JOIN sogg g ON t.identificativo_soggetto = g.identificativo_soggetto;&#xa;&#xa;CREATE OR REPLACE VIEW tit_sogp_sogg AS&#xa;SELECT&#xa;  g.identificativo_immobile AS identificativo_immobile,&#xa;  g.tipo_immobile AS tipo_immobile,&#xa;  'soggetto giuridico' AS tipo_soggetto,&#xa;  g.diritto AS diritto,&#xa;  g.quota AS quota,&#xa;  g.identificativo_soggetto_tit AS identificativo_soggetto_tit,&#xa;  g.identificativo_soggetto_sogg AS identificativo_soggetto,&#xa;  g.denominazione AS denominazione,&#xa;  g.codice_amministrativo_sede AS codice_amministrativo_sede,&#xa;  NULL AS data_nascita,&#xa;  g.codice_fiscale AS codice_fiscale&#xa;  FROM catasto_fabbricati.titg_sogg g&#xa;UNION ALL&#xa;SELECT&#xa;  p.identificativo_immobile AS identificativo_immobile,&#xa;  p.tipo_immobile AS tipo_immobile,&#xa;  'persona fisica' AS tipo_soggetto,&#xa;  p.diritto AS diritto,&#xa;  p.quota AS quota,&#xa;  p.identificativo_soggetto_tit AS identificativo_soggetto_tit,&#xa;  p.identificativo_soggetto_sogp AS identificativo_soggetto,&#xa;  concat(p.cognome, ' ', p.nome) AS denominazione,&#xa;  NULL AS codice_amministrativo_sede,&#xa;  p.data_nascita AS data_nascita,&#xa;  p.codice_fiscale AS codice_fiscale&#xa;FROM catasto_fabbricati.titp_sogp p;&#xa;&#xa;" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="native:postgisexecutesql_8">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="native:postgisexecutesql_8" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="native:postgisexecutesql" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1707" type="double" name="component_pos_x"/>
-        <Option value="768" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="native:postgisexecutesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1707" name="component_pos_x" type="double"/>
+        <Option value="768" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Creazione del dataset dati_censuari_fab" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="1507" type="double" name="component_pos_x"/>
-      <Option value="813" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Creazione del dataset dati_censuari_fab" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="1507" name="component_pos_x" type="double"/>
+      <Option value="813" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="native:postgisexecutesql_7" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_7" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="native:postgisexecutesql_8" type="QString" name="id"/>
+      <Option value="native:postgisexecutesql_8" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="DATABASE">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="SQL">
+        <Option name="SQL" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW dati_censuari_fab AS&#xa;SELECT row_number() OVER ()::integer AS gid,&#xa;  fab.codice_amministrativo,&#xa;  fab.sezione,&#xa;  fab.identificativo_immobile AS identificativo_immobile_fab,&#xa;  fab.progressivo,&#xa;  fab.tipo_record,&#xa;  fab.zona,&#xa;  fab.categoria,&#xa;  fab.descrizione_categoria,&#xa;  fab.classe,&#xa;  fab.consistenza,&#xa;  fab.unita_misura_consistenza,&#xa;  fab.superficie,&#xa;  fab.rendita_lire,&#xa;  fab.rendita_euro,&#xa;  fab.lotto,&#xa;  fab.edificio,&#xa;  fab.scala,&#xa;  fab.interno_1,&#xa;  fab.interno_2,&#xa;  fab.piano_1,&#xa;  fab.piano_2,&#xa;  fab.piano_3,&#xa;  fab.piano_4,&#xa;  fab.partita,&#xa;  fab.foglio,&#xa;  fab.numero,&#xa;  fab.denominatore,&#xa;  fab.subalterno,&#xa;  fab.edificialita,&#xa;  fab.immobili_graffati,&#xa;  fab.indirizzo_completo AS indirizzo,&#xa;  CONCAT_WS (' ', NULLIF(trim(fab.indirizzo_completo), ''), NULLIF(trim(fab.piano_concat), ''), NULLIF(trim(fab.interno_concat), '') ) AS indirizzo_completo,&#xa;  fab.utilita_comuni,&#xa;  fab.riserva,&#xa;  CASE&#xa;    WHEN LENGTH(fab.foglio) = 1 THEN CONCAT(fab.codice_amministrativo, '_000', fab.foglio, '_', REGEXP_REPLACE(fab.numero, '^0+', ''))&#xa;    WHEN LENGTH(fab.foglio) = 2 THEN CONCAT(fab.codice_amministrativo, '_00', fab.foglio, '_', REGEXP_REPLACE(fab.numero, '^0+', ''))&#xa;    WHEN LENGTH(fab.foglio) = 3 THEN CONCAT(fab.codice_amministrativo, '_0', fab.foglio, '_', REGEXP_REPLACE(fab.numero, '^0+', ''))&#xa;    WHEN LENGTH(fab.foglio) = 4 THEN CONCAT(fab.codice_amministrativo, '_', fab.foglio, '_', REGEXP_REPLACE(fab.numero, '^0+', ''))&#xa;  END AS com_fg_plla,&#xa;  t.*&#xa;FROM fab1_2_3_4_5 AS fab&#xa;RIGHT JOIN tit_sogp_sogg t ON fab.identificativo_immobile = t.identificativo_immobile;" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="SET search_path TO catasto_fabbricati;&#xa;CREATE OR REPLACE VIEW dati_censuari_fab AS&#xa;SELECT row_number() OVER ()::integer AS gid,&#xa;  fab.codice_amministrativo,&#xa;  fab.sezione,&#xa;  fab.identificativo_immobile AS identificativo_immobile_fab,&#xa;  fab.progressivo,&#xa;  fab.tipo_record,&#xa;  fab.zona,&#xa;  fab.categoria,&#xa;  fab.descrizione_categoria,&#xa;  fab.classe,&#xa;  fab.consistenza,&#xa;  fab.unita_misura_consistenza,&#xa;  fab.superficie,&#xa;  fab.rendita_lire,&#xa;  fab.rendita_euro,&#xa;  fab.lotto,&#xa;  fab.edificio,&#xa;  fab.scala,&#xa;  fab.interno_1,&#xa;  fab.interno_2,&#xa;  fab.piano_1,&#xa;  fab.piano_2,&#xa;  fab.piano_3,&#xa;  fab.piano_4,&#xa;  fab.partita,&#xa;  fab.foglio,&#xa;  fab.numero,&#xa;  fab.denominatore,&#xa;  fab.subalterno,&#xa;  fab.edificialita,&#xa;  fab.immobili_graffati,&#xa;  fab.indirizzo_completo AS indirizzo,&#xa;  CONCAT_WS (' ', NULLIF(trim(fab.indirizzo_completo), ''), NULLIF(trim(fab.piano_concat), ''), NULLIF(trim(fab.interno_concat), '') ) AS indirizzo_completo,&#xa;  fab.utilita_comuni,&#xa;  fab.riserva,&#xa;  CASE&#xa;    WHEN LENGTH(fab.foglio) = 1 THEN CONCAT(fab.codice_amministrativo, '_000', fab.foglio, '_', REGEXP_REPLACE(fab.numero, '^0+', ''))&#xa;    WHEN LENGTH(fab.foglio) = 2 THEN CONCAT(fab.codice_amministrativo, '_00', fab.foglio, '_', REGEXP_REPLACE(fab.numero, '^0+', ''))&#xa;    WHEN LENGTH(fab.foglio) = 3 THEN CONCAT(fab.codice_amministrativo, '_0', fab.foglio, '_', REGEXP_REPLACE(fab.numero, '^0+', ''))&#xa;    WHEN LENGTH(fab.foglio) = 4 THEN CONCAT(fab.codice_amministrativo, '_', fab.foglio, '_', REGEXP_REPLACE(fab.numero, '^0+', ''))&#xa;  END AS com_fg_plla,&#xa;  t.*&#xa;FROM fab1_2_3_4_5 AS fab&#xa;RIGHT JOIN tit_sogp_sogg t ON fab.identificativo_immobile = t.identificativo_immobile;" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="qgis:importintopostgis_1">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="qgis:importintopostgis_1" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="qgis:importintopostgis" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1148" type="double" name="component_pos_x"/>
-        <Option value="687" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="qgis:importintopostgis" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1148" name="component_pos_x" type="double"/>
+        <Option value="687" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Importazione della tabella fab" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="715" type="double" name="component_pos_x"/>
-      <Option value="240" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Importazione della tabella fab" name="component_description" type="QString"/>
+      <Option value="45" name="component_height" type="double"/>
+      <Option value="555" name="component_pos_x" type="double"/>
+      <Option value="340.5" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="native:postgisexecutesql_1" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_1" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="qgis:importintopostgis_1" type="QString" name="id"/>
+      <Option value="qgis:importintopostgis_1" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="CREATEINDEX">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="CREATEINDEX" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="DATABASE">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="DROP_STRING_LENGTH">
+        <Option name="DROP_STRING_LENGTH" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="false" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="false" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="ENCODING">
+        <Option name="ENCODING" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="UTF-8" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="UTF-8" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="FORCE_SINGLEPART">
+        <Option name="FORCE_SINGLEPART" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="false" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="false" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="GEOMETRY_COLUMN">
+        <Option name="GEOMETRY_COLUMN" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="geom" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="geom" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="INPUT">
+        <Option name="INPUT" type="List">
           <Option type="Map">
-            <Option value="TabellaTER" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="TabellaTER" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="LOWERCASE_NAMES">
+        <Option name="LOWERCASE_NAMES" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="OVERWRITE">
+        <Option name="OVERWRITE" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="PRIMARY_KEY">
+        <Option name="PRIMARY_KEY" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="SCHEMA">
+        <Option name="SCHEMA" type="List">
           <Option type="Map">
-            <Option value="'catasto_fabbricati'" type="QString" name="expression"/>
-            <Option value="3" type="int" name="source"/>
+            <Option value="'catasto_fabbricati'" name="expression" type="QString"/>
+            <Option value="3" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="TABLENAME">
+        <Option name="TABLENAME" type="List">
           <Option type="Map">
-            <Option value="'fab'" type="QString" name="expression"/>
-            <Option value="3" type="int" name="source"/>
+            <Option value="'fab'" name="expression" type="QString"/>
+            <Option value="3" name="source" type="int"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="qgis:importintopostgis_2">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="qgis:importintopostgis_2" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="qgis:importintopostgis" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1354" type="double" name="component_pos_x"/>
-        <Option value="687" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="qgis:importintopostgis" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1354" name="component_pos_x" type="double"/>
+        <Option value="687" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Importazione della tabella sog" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="1067" type="double" name="component_pos_x"/>
-      <Option value="316" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Importazione della tabella sog" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="1067" name="component_pos_x" type="double"/>
+      <Option value="316" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="native:postgisexecutesql_3" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_3" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="qgis:importintopostgis_2" type="QString" name="id"/>
+      <Option value="qgis:importintopostgis_2" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="CREATEINDEX">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="CREATEINDEX" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="DATABASE">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="DROP_STRING_LENGTH">
+        <Option name="DROP_STRING_LENGTH" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="false" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="false" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="ENCODING">
+        <Option name="ENCODING" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="UTF-8" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="UTF-8" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="FORCE_SINGLEPART">
+        <Option name="FORCE_SINGLEPART" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="false" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="false" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="GEOMETRY_COLUMN">
+        <Option name="GEOMETRY_COLUMN" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="geom" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="geom" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="INPUT">
+        <Option name="INPUT" type="List">
           <Option type="Map">
-            <Option value="TabellaSOG" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="TabellaSOG" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="LOWERCASE_NAMES">
+        <Option name="LOWERCASE_NAMES" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="OVERWRITE">
+        <Option name="OVERWRITE" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="PRIMARY_KEY">
+        <Option name="PRIMARY_KEY" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="SCHEMA">
+        <Option name="SCHEMA" type="List">
           <Option type="Map">
-            <Option value="'catasto_fabbricati'" type="QString" name="expression"/>
-            <Option value="3" type="int" name="source"/>
+            <Option value="'catasto_fabbricati'" name="expression" type="QString"/>
+            <Option value="3" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="TABLENAME">
+        <Option name="TABLENAME" type="List">
           <Option type="Map">
-            <Option value="'sog'" type="QString" name="expression"/>
-            <Option value="3" type="int" name="source"/>
+            <Option value="'sog'" name="expression" type="QString"/>
+            <Option value="3" name="source" type="int"/>
           </Option>
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="qgis:importintopostgis_3">
-      <Option value="true" type="bool" name="active"/>
+    <Option name="qgis:importintopostgis_3" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option value="qgis:importintopostgis" type="QString" name="alg_id"/>
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1487" type="double" name="component_pos_x"/>
-        <Option value="687" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="qgis:importintopostgis" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1487" name="component_pos_x" type="double"/>
+        <Option value="687" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="Importazione della tabella tit" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="817" type="double" name="component_pos_x"/>
-      <Option value="480" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option type="List" name="dependencies">
+      <Option value="Importazione della tabella tit" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="817" name="component_pos_x" type="double"/>
+      <Option value="480" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option name="dependencies" type="List">
         <Option type="Map">
-          <Option value="native:postgisexecutesql_1" type="QString" name="child_id"/>
-          <Option value="" type="QString" name="conditional_branch"/>
+          <Option value="native:postgisexecutesql_1" name="child_id" type="QString"/>
+          <Option value="" name="conditional_branch" type="QString"/>
         </Option>
       </Option>
-      <Option value="qgis:importintopostgis_3" type="QString" name="id"/>
+      <Option value="qgis:importintopostgis_3" name="id" type="QString"/>
       <Option name="outputs"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="CREATEINDEX">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="CREATEINDEX" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="DATABASE">
+        <Option name="DATABASE" type="List">
           <Option type="Map">
-            <Option value="DatabasePostgres" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="DatabasePostgres" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="DROP_STRING_LENGTH">
+        <Option name="DROP_STRING_LENGTH" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="false" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="false" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="ENCODING">
+        <Option name="ENCODING" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="UTF-8" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="UTF-8" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="FORCE_SINGLEPART">
+        <Option name="FORCE_SINGLEPART" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="false" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="false" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="GEOMETRY_COLUMN">
+        <Option name="GEOMETRY_COLUMN" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="geom" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="geom" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="INPUT">
+        <Option name="INPUT" type="List">
           <Option type="Map">
-            <Option value="TabellaTIT" type="QString" name="parameter_name"/>
-            <Option value="0" type="int" name="source"/>
+            <Option value="TabellaTIT" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="LOWERCASE_NAMES">
+        <Option name="LOWERCASE_NAMES" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="OVERWRITE">
+        <Option name="OVERWRITE" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="true" type="bool" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="true" name="static_value" type="bool"/>
           </Option>
         </Option>
-        <Option type="List" name="PRIMARY_KEY">
+        <Option name="PRIMARY_KEY" type="List">
           <Option type="Map">
-            <Option value="2" type="int" name="source"/>
-            <Option value="" type="QString" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="SCHEMA">
+        <Option name="SCHEMA" type="List">
           <Option type="Map">
-            <Option value="'catasto_fabbricati'" type="QString" name="expression"/>
-            <Option value="3" type="int" name="source"/>
+            <Option value="'catasto_fabbricati'" name="expression" type="QString"/>
+            <Option value="3" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="TABLENAME">
+        <Option name="TABLENAME" type="List">
           <Option type="Map">
-            <Option value="'tit'" type="QString" name="expression"/>
-            <Option value="3" type="int" name="source"/>
+            <Option value="'tit'" name="expression" type="QString"/>
+            <Option value="3" name="source" type="int"/>
           </Option>
         </Option>
       </Option>
     </Option>
   </Option>
-  <Option name="designerParameterValues"/>
+  <Option name="designerParameterValues" type="Map">
+    <Option value="torralba" name="DatabasePostgres" type="QString"/>
+    <Option value="sog_6afd833e_07ff_438f_9bc1_177d99b0c765" name="TabellaSOG" type="QString"/>
+    <Option value="fab_3fd521ab_bdb6_4fd7_9983_23025c94d059" name="TabellaTER" type="QString"/>
+    <Option value="tit_a0c3af7b_b16c_4c53_92f1_d43850d0e0b2" name="TabellaTIT" type="QString"/>
+    <Option value="true" name="VERBOSE_LOG" type="bool"/>
+  </Option>
   <Option name="groupBoxes"/>
   <Option name="help"/>
   <Option name="modelVariables"/>
-  <Option value="" type="QString" name="model_group"/>
-  <Option value="Importazione dati censuari catasto fabbricati" type="QString" name="model_name"/>
-  <Option type="Map" name="parameterDefinitions">
-    <Option type="Map" name="DatabasePostgres">
-      <Option type="invalid" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option value="Database Postgres" type="QString" name="description"/>
-      <Option value="0" type="int" name="flags"/>
-      <Option value="" type="QString" name="help"/>
+  <Option value="" name="model_group" type="QString"/>
+  <Option value="Importazione dati censuari catasto fabbricati" name="model_name" type="QString"/>
+  <Option name="parameterDefinitions" type="Map">
+    <Option name="DatabasePostgres" type="Map">
+      <Option name="default" type="invalid"/>
+      <Option name="defaultGui" type="invalid"/>
+      <Option value="Database Postgres" name="description" type="QString"/>
+      <Option value="0" name="flags" type="int"/>
+      <Option value="" name="help" type="QString"/>
       <Option name="metadata"/>
-      <Option value="DatabasePostgres" type="QString" name="name"/>
-      <Option value="providerconnection" type="QString" name="parameter_type"/>
-      <Option value="postgres" type="QString" name="provider"/>
+      <Option value="DatabasePostgres" name="name" type="QString"/>
+      <Option value="providerconnection" name="parameter_type" type="QString"/>
+      <Option value="postgres" name="provider" type="QString"/>
     </Option>
-    <Option type="Map" name="TabellaSOG">
-      <Option type="List" name="data_types">
+    <Option name="TabellaSOG" type="Map">
+      <Option name="data_types" type="List">
         <Option value="5" type="int"/>
       </Option>
-      <Option type="invalid" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option value="Tabella SOG" type="QString" name="description"/>
-      <Option value="0" type="int" name="flags"/>
-      <Option value="" type="QString" name="help"/>
+      <Option name="default" type="invalid"/>
+      <Option name="defaultGui" type="invalid"/>
+      <Option value="Tabella SOG" name="description" type="QString"/>
+      <Option value="0" name="flags" type="int"/>
+      <Option value="" name="help" type="QString"/>
       <Option name="metadata"/>
-      <Option value="TabellaSOG" type="QString" name="name"/>
-      <Option value="vector" type="QString" name="parameter_type"/>
+      <Option value="TabellaSOG" name="name" type="QString"/>
+      <Option value="vector" name="parameter_type" type="QString"/>
     </Option>
-    <Option type="Map" name="TabellaTER">
-      <Option type="List" name="data_types">
+    <Option name="TabellaTER" type="Map">
+      <Option name="data_types" type="List">
         <Option value="5" type="int"/>
       </Option>
-      <Option type="invalid" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option value="Tabella FAB" type="QString" name="description"/>
-      <Option value="0" type="int" name="flags"/>
-      <Option value="" type="QString" name="help"/>
+      <Option name="default" type="invalid"/>
+      <Option name="defaultGui" type="invalid"/>
+      <Option value="Tabella FAB" name="description" type="QString"/>
+      <Option value="0" name="flags" type="int"/>
+      <Option value="" name="help" type="QString"/>
       <Option name="metadata"/>
-      <Option value="TabellaTER" type="QString" name="name"/>
-      <Option value="vector" type="QString" name="parameter_type"/>
+      <Option value="TabellaTER" name="name" type="QString"/>
+      <Option value="vector" name="parameter_type" type="QString"/>
     </Option>
-    <Option type="Map" name="TabellaTIT">
-      <Option type="List" name="data_types">
+    <Option name="TabellaTIT" type="Map">
+      <Option name="data_types" type="List">
         <Option value="5" type="int"/>
       </Option>
-      <Option type="invalid" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option value="Tabella TIT" type="QString" name="description"/>
-      <Option value="0" type="int" name="flags"/>
-      <Option value="" type="QString" name="help"/>
+      <Option name="default" type="invalid"/>
+      <Option name="defaultGui" type="invalid"/>
+      <Option value="Tabella TIT" name="description" type="QString"/>
+      <Option value="0" name="flags" type="int"/>
+      <Option value="" name="help" type="QString"/>
       <Option name="metadata"/>
-      <Option value="TabellaTIT" type="QString" name="name"/>
-      <Option value="vector" type="QString" name="parameter_type"/>
+      <Option value="TabellaTIT" name="name" type="QString"/>
+      <Option value="vector" name="parameter_type" type="QString"/>
     </Option>
   </Option>
   <Option name="parameterOrder"/>
-  <Option type="Map" name="parameters">
-    <Option type="Map" name="DatabasePostgres">
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="1084" type="double" name="component_pos_x"/>
-        <Option value="15" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+  <Option name="parameters" type="Map">
+    <Option name="DatabasePostgres" type="Map">
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="1084" name="component_pos_x" type="double"/>
+        <Option value="15" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="DatabasePostgres" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="122" type="double" name="component_pos_x"/>
-      <Option value="43" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option value="DatabasePostgres" type="QString" name="name"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="DatabasePostgres" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="122" name="component_pos_x" type="double"/>
+      <Option value="43" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option value="DatabasePostgres" name="name" type="QString"/>
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
     </Option>
-    <Option type="Map" name="TabellaSOG">
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="252,48,48,255" type="QString" name="color"/>
-        <Option value="Tabella .SOG importata in QGIS" type="QString" name="component_description"/>
-        <Option value="60" type="double" name="component_height"/>
-        <Option value="565" type="double" name="component_pos_x"/>
-        <Option value="15" type="double" name="component_pos_y"/>
-        <Option value="100" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+    <Option name="TabellaSOG" type="Map">
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="252,48,48,255" name="color" type="QString"/>
+        <Option value="Tabella .SOG importata in QGIS" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="559" name="component_pos_x" type="double"/>
+        <Option value="48" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="TabellaSOG" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="418" type="double" name="component_pos_x"/>
-      <Option value="155" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option value="TabellaSOG" type="QString" name="name"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="TabellaSOG" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="783" name="component_pos_x" type="double"/>
+      <Option value="160" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option value="TabellaSOG" name="name" type="QString"/>
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
     </Option>
-    <Option type="Map" name="TabellaTER">
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="252,48,48,255" type="QString" name="color"/>
-        <Option value="Tabella .TER importata in QGIS" type="QString" name="component_description"/>
-        <Option value="44" type="double" name="component_height"/>
-        <Option value="346.5" type="double" name="component_pos_x"/>
-        <Option value="44" type="double" name="component_pos_y"/>
-        <Option value="85" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+    <Option name="TabellaTER" type="Map">
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="252,48,48,255" name="color" type="QString"/>
+        <Option value="Tabella .FAB importata in QGIS" name="component_description" type="QString"/>
+        <Option value="44" name="component_height" type="double"/>
+        <Option value="346.5" name="component_pos_x" type="double"/>
+        <Option value="44" name="component_pos_y" type="double"/>
+        <Option value="85" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="TabellaTER" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="145" type="double" name="component_pos_x"/>
-      <Option value="138" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option value="TabellaTER" type="QString" name="name"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="TabellaTER" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="145" name="component_pos_x" type="double"/>
+      <Option value="138" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option value="TabellaTER" name="name" type="QString"/>
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
     </Option>
-    <Option type="Map" name="TabellaTIT">
-      <Option value="" type="QString" name="color"/>
-      <Option type="Map" name="comment">
-        <Option value="" type="QString" name="color"/>
-        <Option value="Tabella .TIT importata in QGIS" type="QString" name="component_description"/>
-        <Option value="45" type="double" name="component_height"/>
-        <Option value="789.5" type="double" name="component_pos_x"/>
-        <Option value="32.5" type="double" name="component_pos_y"/>
-        <Option value="91" type="double" name="component_width"/>
-        <Option value="true" type="bool" name="outputs_collapsed"/>
-        <Option value="true" type="bool" name="parameters_collapsed"/>
+    <Option name="TabellaTIT" type="Map">
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="Tabella .TIT importata in QGIS" name="component_description" type="QString"/>
+        <Option value="62" name="component_height" type="double"/>
+        <Option value="720" name="component_pos_x" type="double"/>
+        <Option value="48" name="component_pos_y" type="double"/>
+        <Option value="106.00000000000001" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option value="TabellaTIT" type="QString" name="component_description"/>
-      <Option value="30" type="double" name="component_height"/>
-      <Option value="664" type="double" name="component_pos_x"/>
-      <Option value="145" type="double" name="component_pos_y"/>
-      <Option value="200" type="double" name="component_width"/>
-      <Option value="TabellaTIT" type="QString" name="name"/>
-      <Option value="true" type="bool" name="outputs_collapsed"/>
-      <Option value="true" type="bool" name="parameters_collapsed"/>
+      <Option value="TabellaTIT" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="1187" name="component_pos_x" type="double"/>
+      <Option value="86" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option value="TabellaTIT" name="name" type="QString"/>
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
     </Option>
   </Option>
 </Option>
