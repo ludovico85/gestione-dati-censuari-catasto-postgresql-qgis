@@ -641,8 +641,8 @@ CREATE OR REPLACE VIEW ter4_colnames AS SELECT
   a.descrizione AS descrizione_qualita_1,
   field_9 AS classe_1,
   field_10 AS ettari_1,
-  field_11 AS are,
-  field_12 AS centiare,
+  field_11 AS are_1,
+  field_12 AS centiare_1,
   field_13 AS identificativo_porzione_2,
   field_14 AS qualita_2,
   b.descrizione AS descrizione_qualita_2,
@@ -664,11 +664,11 @@ CREATE OR REPLACE VIEW ter4_colnames AS SELECT
   field_28 AS ettari_4,
   field_29 AS are_4,
   field_30 AS centiare_4
-FROM ter4 t
-LEFT JOIN qualita a ON t.field_12 = a.codice
-LEFT JOIN qualita b ON t.field_12 = b.codice
-LEFT JOIN qualita c ON t.field_12 = c.codice
-LEFT JOIN qualita d ON t.field_12 = d.codice;
+FROM catasto_terreni.ter4 t
+LEFT JOIN catasto_terreni.qualita a ON t.field_8 = a.codice
+LEFT JOIN catasto_terreni.qualita b ON t.field_14 = b.codice
+LEFT JOIN catasto_terreni.qualita c ON t.field_20 = c.codice
+LEFT JOIN catasto_terreni.qualita d ON t.field_16 = d.codice;
 ```
 #### Titolarità
 Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolarità delle persone fisiche e dei soggetti giuridici.
