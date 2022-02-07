@@ -924,7 +924,7 @@ INSERT INTO categoria_catastale (codice, descrizione) VALUES
   ('A02','abitazioni di tipo civile'),
   ('A03','abitazioni di tipo economico'),
   ('A04','abitazioni di tipo popolare'),
-  ('A05','abitazioni di tipo ultapopolare'),
+  ('A05','abitazioni di tipo ultrapopolare'),
   ('A06','abitazioni di tipo rurale'),
   ('A07','abitazioni in villini'),
   ('A08','abitazioni in ville'),
@@ -993,10 +993,12 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   (236, 'Via'),
   (240, 'Viale'),
   (244, 'Vico'),
+  (248, 'Vicolo'),
   (477, 'Prato'),
   (546, 'Strada comunale'),
   (566, 'Strada provinciale'),
   (661, 'Vico chiuso'),
+  (705, 'Zona'),
   (843, 'Monte'),
   (894, 'Strada poderale');
 
