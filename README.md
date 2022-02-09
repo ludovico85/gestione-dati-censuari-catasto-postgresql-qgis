@@ -627,48 +627,56 @@ Le deuzioni non sono state elaborate.
 #### Tipo di record 3
 Oltre ai dati generali, contiene il codice della riserva e la partita di iscrizione riserva, quest'ultima già presente nel campo partita di ter1_colnames. Nessuna operazione necessaria.
 #### Tipo di record 4
-Non è possibile conoscere il numero di porzioni della particella a priori. Per tale motivo è stato scelto un massimo di 4 porzioni (che può essere modificato, modificando la query).
+Non è possibile conoscere il numero di porzioni della particella a priori. Per tale motivo è stato scelto un massimo di 5 porzioni (che può essere modificato, cambiando la query).
 ```sql
-CREATE OR REPLACE VIEW ter4_colnames AS SELECT
+CREATE OR REPLACE VIEW catasto_terreni.ter4_colnames AS SELECT
   field_1 AS codice_amministrativo,
   field_2 AS sezione,
   field_3 AS identificativo_immobile,
   field_4 AS tipo_immobile,
   field_5 AS progressivo,
   field_6 AS tipo_record,
-  field_7 AS identificativo_porzione_1,
+  field_7 AS identificativo_porzione_1, -- porzione AA
   field_8 AS qualita_1,
   a.descrizione AS descrizione_qualita_1,
   field_9 AS classe_1,
   field_10 AS ettari_1,
   field_11 AS are_1,
   field_12 AS centiare_1,
-  field_13 AS identificativo_porzione_2,
+  field_13 AS identificativo_porzione_2, -- porzione AB
   field_14 AS qualita_2,
   b.descrizione AS descrizione_qualita_2,
   field_15 AS classe_2,
   field_16 AS ettari_2,
   field_17 AS are_2,
   field_18 AS centiare_2,
-  field_19 AS identificativo_porzione_3,
+  field_19 AS identificativo_porzione_3, -- porzione AC
   field_20 AS qualita_3,
   c.descrizione AS descrizione_qualita_3,
   field_21 AS classe_3,
   field_22 AS ettari_3,
   field_23 AS are_3,
   field_24 AS centiare_3,
-  field_25 AS identificativo_porzione_4,
+  field_25 AS identificativo_porzione_4, -- porzione AD
   field_26 AS qualita_4,
   d.descrizione AS descrizione_qualita_4,
   field_27 AS classe_4,
   field_28 AS ettari_4,
   field_29 AS are_4,
-  field_30 AS centiare_4
+  field_30 AS centiare_4,
+  field_31 AS identificativo_porzione_5, -- porzione AE
+  field_32 AS qualita_5,
+  d.descrizione AS descrizione_qualita_5,
+  field_33 AS classe_5,
+  field_34 AS ettari_5,
+  field_35 AS are_5,
+  field_36 AS centiare_5
 FROM catasto_terreni.ter4 t
 LEFT JOIN catasto_terreni.qualita a ON t.field_8 = a.codice
 LEFT JOIN catasto_terreni.qualita b ON t.field_14 = b.codice
 LEFT JOIN catasto_terreni.qualita c ON t.field_20 = c.codice
-LEFT JOIN catasto_terreni.qualita d ON t.field_16 = d.codice;
+LEFT JOIN catasto_terreni.qualita d ON t.field_26 = d.codice
+LEFT JOIN catasto_terreni.qualita e ON t.field_32 = e.codice;
 ```
 #### Titolarità
 Si costruisce dapprima la vista con il nome dei campi e qualche informazione aggiuntiva (come la descrizione del diritto), successivamente si suddivide il dataset per le titolarità delle persone fisiche e dei soggetti giuridici.
@@ -993,8 +1001,10 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   (162, 'Rione'),
   (172, 'Salita'),
   (185, 'Località'),
+  (204, 'Sottoportico'),
   (210, 'Strada'),
   (224, 'Traversa'),
+  (229, 'Sopportico'),
   (236, 'Via'),
   (240, 'Viale'),
   (244, 'Vico'),
@@ -1007,6 +1017,7 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   (579, 'Strada vicinale'),
   (640, 'Via provinciale'),
   (661, 'Vico chiuso'),
+  (704, 'Colle'),
   (705, 'Zona'),
   (843, 'Monte'),
   (894, 'Strada poderale');
