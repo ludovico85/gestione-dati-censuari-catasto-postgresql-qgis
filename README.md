@@ -1003,9 +1003,10 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('185', 'Località'),
   ('204', 'Sottoportico'),
   ('210', 'Strada'),
-  ('218', 'Supportico')
+  ('218', 'Supportico'),
   ('224', 'Traversa'),
   ('229', 'Sopportico'),
+  ('232', 'Vallone'),
   ('236', 'Via'),
   ('240', 'Viale'),
   ('244', 'Vico'),
