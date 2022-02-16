@@ -1013,17 +1013,17 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('248', 'Vicolo'),
   ('394', 'Larghetto'),
   ('477', 'Prato'),
-  ('546', 'Strada comunale'),
-  ('566', 'Strada provinciale'),
-  ('571', 'Strada statale'),
-  ('579', 'Strada vicinale'),
-  ('640', 'Via provinciale'),
-  ('661', 'Vico chiuso'),
-  ('662', 'Vico cieco'),
+  ('546', 'Strada Comunale'),
+  ('566', 'Strada Provinciale'),
+  ('571', 'Strada Statale'),
+  ('579', 'Strada Vicinale'),
+  ('640', 'Via Provinciale'),
+  ('661', 'Vico Chiuso'),
+  ('662', 'Vico Cieco'),
   ('704', 'Colle'),
   ('705', 'Zona'),
   ('843', 'Monte'),
-  ('894', 'Strada poderale');
+  ('894', 'Strada Poderale');
 
 #### Creazione tabella codici diritto
 CREATE TABLE codici_diritto (
@@ -1303,10 +1303,10 @@ SELECT
   fab2.edificialita,
   fab2.immobili_graffati,
   CASE
-    WHEN fab3.indirizzo_completo IS NOT NULL AND fab3.indirizzo_completo_a = '' AND fab3.indirizzo_completo_b = '' AND indirizzo_completo_c = '' THEN indirizzo_completo
-    WHEN fab3.indirizzo_completo_a IS NOT NULL AND fab3.indirizzo_completo_b = '' AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_a
-    WHEN fab3.indirizzo_completo_b IS NOT NULL AND fab3.indirizzo_completo_c = '' THEN fab3.indirizzo_completo_b
-    WHEN fab3.indirizzo_completo_c IS NOT NULL THEN fab3.indirizzo_completo_c
+    WHEN fab3.indirizzo_completo IS NOT NULL AND fab3.indirizzo_completo_a = '' AND fab3.indirizzo_completo_b = '' AND fab3.indirizzo_completo_c = '' THEN indirizzo_completo
+    WHEN fab3.indirizzo_completo_a IS NOT NULL AND fab3.indirizzo_completo_b = '' AND fab3.indirizzo_completo_c = '' THEN CONCAT (fab3.indirizzo_completo, ' - ', fab3.indirizzo_completo_a)
+    WHEN fab3.indirizzo_completo_b IS NOT NULL AND fab3.indirizzo_completo_c = '' THEN CONCAT (fab3.indirizzo_completo, ' - ', fab3.indirizzo_completo_a, ' - ', fab3.indirizzo_completo_b)
+    WHEN fab3.indirizzo_completo_c IS NOT NULL THEN CONCAT (fab3.indirizzo_completo, ' - ', fab3.indirizzo_completo_a, ' - ', fab3.indirizzo_completo_b, ' - ', fab3.indirizzo_completo_c)
   END AS indirizzo_completo,
   CASE
     WHEN fab4.identificativo_immobile = fab1.identificativo_immobile THEN 'utilità comuni dell''unità immobiliare'
