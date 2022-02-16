@@ -1003,6 +1003,7 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('185', 'Località'),
   ('204', 'Sottoportico'),
   ('210', 'Strada'),
+  ('218', 'Supportico')
   ('224', 'Traversa'),
   ('229', 'Sopportico'),
   ('236', 'Via'),
@@ -1018,6 +1019,7 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('579', 'Strada vicinale'),
   ('640', 'Via provinciale'),
   ('661', 'Vico chiuso'),
+  ('662', 'Vico cieco'),
   ('704', 'Colle'),
   ('705', 'Zona'),
   ('843', 'Monte'),
