@@ -990,6 +990,7 @@ CREATE TABLE codice_toponimo (
 
 INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('0', ''),
+  ('50', 'Circonvallazione'),
   ('54', 'Contrada'),
   ('58', 'Corso'),
   ('77','Frazione'),
