@@ -990,6 +990,7 @@ CREATE TABLE codice_toponimo (
 
 INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('0', ''),
+  ('24', 'Borgo'),
   ('50', 'Circonvallazione'),
   ('54', 'Contrada'),
   ('58', 'Corso'),
@@ -997,8 +998,8 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('86', 'Largo'),
   ('90', 'Località'),
   ('130', 'Piazza'),
-  ('134', 'Piazzetta'),
   ('132', 'Piazzale'),
+  ('134', 'Piazzetta'),
   ('162', 'Rione'),
   ('172', 'Salita'),
   ('185', 'Località'),
@@ -1013,6 +1014,7 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('244', 'Vico'),
   ('246', 'Vicoletto'),
   ('248', 'Vicolo'),
+  ('273', 'Piane'),
   ('394', 'Larghetto'),
   ('477', 'Prato'),
   ('546', 'Strada Comunale'),
