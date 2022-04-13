@@ -1013,8 +1013,10 @@ INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('240', 'Viale'),
   ('244', 'Vico'),
   ('246', 'Vicoletto'),
-  ('248', 'Vicolo'),
+  ('248', 'Vicolo')
+  ('250', 'Villaggio'),
   ('273', 'Piane'),
+  ('347', 'Case sparse'),
   ('394', 'Larghetto'),
   ('477', 'Prato'),
   ('546', 'Strada Comunale'),
