@@ -991,7 +991,7 @@ CREATE TABLE codice_toponimo (
 INSERT INTO codice_toponimo (codice, denominazione) VALUES
   ('0', ''),
   ('24', 'Borgo'),
-  ('26', 'Calata),
+  ('26', 'Calata'),
   ('50', 'Circonvallazione'),
   ('54', 'Contrada'),
   ('58', 'Corso'),
